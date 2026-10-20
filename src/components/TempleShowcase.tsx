@@ -33,40 +33,52 @@ const panels = [
 
 export function TempleShowcase() {
   const [active, setActive] = useState(0);
+  const [open, setOpen] = useState(false);
   return (
-    <div className="flex h-[620px] flex-col gap-2 overflow-hidden rounded-lg shadow-warm md:h-[520px] md:flex-row md:gap-0">
+    <div className="flex h-[620px] flex-col gap-2 overflow-hidden rounded-lg shadow-warm md:h-[560px] md:flex-row md:gap-0">
       {panels.map((p, i) => {
         const on = i === active;
+        const show = on && open;
         return (
           <div
             key={p.title}
             role="button"
             tabIndex={0}
-            onClick={() => setActive(i)}
-            onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setActive(i)}
+            onClick={() => { if (!on) { setActive(i); setOpen(false); } }}
+            onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && !on && (setActive(i), setOpen(false))}
             aria-expanded={on}
-            className={`group relative cursor-pointer overflow-hidden text-left transition-[flex-grow] duration-700 ease-out ${on ? "grow-[5]" : "grow"} basis-0`}
+            className={`group relative cursor-pointer overflow-hidden transition-[flex-grow] duration-700 ease-out ${on ? "grow-[5]" : "grow"} basis-0`}
           >
-            <img src={p.img} alt={p.title} loading="lazy" className={`absolute inset-0 h-full w-full object-cover transition duration-700 ${on ? "scale-100" : "scale-110 grayscale-[40%]"}`} />
-            <div className="absolute inset-0 bg-veil" />
-            <div className="relative flex h-full flex-col p-5 text-primary-foreground md:p-6">
-              <div className="text-center">
-                <h3 className="text-2xl font-semibold md:text-3xl">{p.title}</h3>
-                <p className="text-sm text-gold">{p.sub}</p>
-                <div className="relative mt-3 hidden md:block">
-                  <div className="rangoli-divider" />
-                  <span className={`absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full ring-2 ring-gold ${on ? "bg-gold" : "bg-maroon-deep"}`} />
+            <img src={p.img} alt={p.title} loading="lazy" className={`absolute inset-0 h-full w-full object-cover transition duration-700 ${on ? "scale-100" : "scale-110 grayscale-[40%] group-hover:grayscale-0"}`} />
+            <div className={`absolute inset-x-0 bottom-0 h-1/2 bg-veil transition-opacity ${show ? "opacity-100" : "opacity-70"}`} />
+            <div className="relative flex h-full flex-col items-center justify-end p-4 text-primary-foreground">
+              {!show && (
+                <button
+                  type="button"
+                  onClick={(e) => { e.stopPropagation(); setActive(i); setOpen(true); }}
+                  className="rounded-full bg-sacred px-5 py-2 text-sm font-medium text-primary-foreground shadow-warm transition hover:scale-105"
+                >
+                  {p.title} — माहिती
+                </button>
+              )}
+              {show && (
+                <div className="w-full max-w-xl rounded-lg bg-background/95 p-5 text-foreground backdrop-blur animate-in fade-in slide-in-from-bottom-4">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <h3 className="text-2xl font-semibold text-primary">{p.title}</h3>
+                      <p className="text-sm text-accent">{p.sub}</p>
+                    </div>
+                    <button type="button" aria-label="बंद करा" onClick={(e) => { e.stopPropagation(); setOpen(false); }} className="rounded-full px-2 text-xl text-muted-foreground hover:text-primary">×</button>
+                  </div>
+                  <p className="mt-2">{p.text}</p>
+                  <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
+                    {p.points.map((pt) => <li key={pt}><span className="text-accent">✦</span> {pt}</li>)}
+                  </ul>
+                  <Link to={p.cta.to} onClick={(e) => e.stopPropagation()} className="mt-3 inline-block rounded-full bg-sacred px-5 py-2 text-sm font-medium text-primary-foreground">
+                    {p.cta.label}
+                  </Link>
                 </div>
-              </div>
-              <div className={`mt-auto max-w-xl rounded-lg bg-background/90 p-5 text-foreground backdrop-blur transition-all duration-500 ${on ? "translate-y-0 opacity-100 delay-300" : "pointer-events-none translate-y-6 opacity-0"}`}>
-                <p>{p.text}</p>
-                <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
-                  {p.points.map((pt) => <li key={pt}><span className="text-accent">✦</span> {pt}</li>)}
-                </ul>
-                <Link to={p.cta.to} onClick={(e) => e.stopPropagation()} className="mt-4 inline-block rounded-full bg-sacred px-5 py-2 text-sm font-medium text-primary-foreground">
-                  {p.cta.label}
-                </Link>
-              </div>
+              )}
             </div>
           </div>
         );
