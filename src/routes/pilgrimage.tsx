@@ -1,8 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { BedDouble, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import journey from "@/assets/journey.jpg";
 import air from "@/assets/by-air.jpg";
 import train from "@/assets/by-train.jpg";
 import road from "@/assets/by-road.jpg";
+import niwas from "@/assets/yatri-nivas.jpg.asset.json";
 import { PageHero, Section, Card } from "@/components/Section";
 
 export const Route = createFileRoute("/pilgrimage")({
@@ -50,7 +54,41 @@ function Pilgrimage() {
         <Section kicker="उपयुक्त मार्गदर्शन" title="प्रवासापूर्वी">
           <div className="grid gap-6 md:grid-cols-2">
             <Card title="भेटीचा उत्तम काळ">ऑक्टोबर ते फेब्रुवारी हवामान आल्हाददायक असते. नवरात्रात मोठी गर्दी असते — निवासाची व्यवस्था आधी करा.</Card>
-            <Card title="निवास व्यवस्था">अंबाजोगाई शहरात मंदिराजवळ भक्त निवास, लॉज व हॉटेल्स उपलब्ध आहेत.</Card>
+            <Dialog>
+              <Card title="निवास व्यवस्था">
+                <p>अंबाजोगाई शहरात मंदिराजवळ भक्त निवास, लॉज व हॉटेल्स उपलब्ध आहेत.</p>
+                <div className="mt-4 rounded-md border border-border bg-secondary p-4">
+                  <p className="font-semibold text-primary">श्री योगेश्वरी यात्री निवास</p>
+                  <p className="mt-1">प्रो. मनोज काले · ९९२२ १३३५५०</p>
+                  <p className="mt-1">योगेश्वरी मंदिरसमोर, अंबाजोगाई, जि. बीड · ए.सी. व नॉन-ए.सी. खोल्या</p>
+                </div>
+                <DialogTrigger asChild>
+                  <Button className="mt-4 bg-accent text-accent-foreground hover:bg-accent/90">
+                    <BedDouble className="h-4 w-4" />
+                    राहण्यासाठी येथे क्लिक करा
+                  </Button>
+                </DialogTrigger>
+              </Card>
+              <DialogContent className="max-w-xl">
+                <DialogHeader>
+                  <DialogTitle>श्री योगेश्वरी यात्री निवास</DialogTitle>
+                  <DialogDescription>
+                    प्रो. मनोज काले · ९९२२ १३३५५० · योगेश्वरी मंदिरसमोर, अंबाजोगाई, जि. बीड
+                  </DialogDescription>
+                </DialogHeader>
+                <img
+                  src={niwas.url}
+                  alt="श्री योगेश्वरी यात्री निवास — प्रो. मनोज काले, अंबाजोगाई"
+                  className="w-full rounded-md border border-border"
+                />
+                <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
+                  <a href="tel:+919922133550">
+                    <Phone className="h-4 w-4" />
+                    ९९२२ १३३५५० वर बोला
+                  </a>
+                </Button>
+              </DialogContent>
+            </Dialog>
             <Card title="पोशाख व आचरण">पारंपरिक व सभ्य पोशाख अपेक्षित. पादत्राणे व चामड्याच्या वस्तू बाहेर ठेवाव्यात.</Card>
             <Card title="जवळची तीर्थक्षेत्रे">परळी वैजनाथ ज्योतिर्लिंग, मुकुंदराज समाधी, दासोपंत समाधी आणि खोलेश्वर मंदिर.</Card>
           </div>
