@@ -10,33 +10,73 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ConnectRouteImport } from './routes/connect'
+import { Route as DarshanRouteImport } from './routes/darshan'
+import { Route as HeritageRouteImport } from './routes/heritage'
+import { Route as PilgrimageRouteImport } from './routes/pilgrimage'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConnectRoute = ConnectRouteImport.update({
+  id: '/connect',
+  path: '/connect',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DarshanRoute = DarshanRouteImport.update({
+  id: '/darshan',
+  path: '/darshan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeritageRoute = HeritageRouteImport.update({
+  id: '/heritage',
+  path: '/heritage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PilgrimageRoute = PilgrimageRouteImport.update({
+  id: '/pilgrimage',
+  path: '/pilgrimage',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/connect': typeof ConnectRoute
+  '/darshan': typeof DarshanRoute
+  '/heritage': typeof HeritageRoute
+  '/pilgrimage': typeof PilgrimageRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/connect': typeof ConnectRoute
+  '/darshan': typeof DarshanRoute
+  '/heritage': typeof HeritageRoute
+  '/pilgrimage': typeof PilgrimageRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/connect': typeof ConnectRoute
+  '/darshan': typeof DarshanRoute
+  '/heritage': typeof HeritageRoute
+  '/pilgrimage': typeof PilgrimageRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/connect' | '/darshan' | '/heritage' | '/pilgrimage'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/connect' | '/darshan' | '/heritage' | '/pilgrimage'
+  id: '__root__' | '/' | '/connect' | '/darshan' | '/heritage' | '/pilgrimage'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ConnectRoute: typeof ConnectRoute
+  DarshanRoute: typeof DarshanRoute
+  HeritageRoute: typeof HeritageRoute
+  PilgrimageRoute: typeof PilgrimageRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +88,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/connect': {
+      id: '/connect'
+      path: '/connect'
+      fullPath: '/connect'
+      preLoaderRoute: typeof ConnectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/darshan': {
+      id: '/darshan'
+      path: '/darshan'
+      fullPath: '/darshan'
+      preLoaderRoute: typeof DarshanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/heritage': {
+      id: '/heritage'
+      path: '/heritage'
+      fullPath: '/heritage'
+      preLoaderRoute: typeof HeritageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pilgrimage': {
+      id: '/pilgrimage'
+      path: '/pilgrimage'
+      fullPath: '/pilgrimage'
+      preLoaderRoute: typeof PilgrimageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ConnectRoute: ConnectRoute,
+  DarshanRoute: DarshanRoute,
+  HeritageRoute: HeritageRoute,
+  PilgrimageRoute: PilgrimageRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
