@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep shared page styling in the semantic tokens and SiteChrome/Section components so visual updates remain consistent across all pages.
+- TempleShowcase keeps photo selection separate from details visibility; show details below the image strip so authentic photos remain unobscured.

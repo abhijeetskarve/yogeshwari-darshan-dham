@@ -5,6 +5,8 @@ import { PageHero, Section, Card } from "@/components/Section";
 export const Route = createFileRoute("/heritage")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "इतिहास व कोकणस्थ वारसा | योगेश्वरी देवी अंबाजोगाई" },
       { name: "description", content: "योगेश्वरी मातेची आख्यायिका आणि कोकणस्थ समाजाच्या कुलदेवता परंपरा." },
       { property: "og:title", content: "योगेश्वरी मातेचा वारसा" },

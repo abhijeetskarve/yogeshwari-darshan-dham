@@ -8,6 +8,8 @@ import { PageHero, Section, Card } from "@/components/Section";
 export const Route = createFileRoute("/pilgrimage")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "अंबाजोगाई यात्रा नियोजन | योगेश्वरी देवी" },
       { name: "description", content: "विमान, रेल्वे किंवा रस्त्याने अंबाजोगाईला कसे पोहोचावे, निवास व प्रवासाच्या सूचना." },
       { property: "og:title", content: "अंबाजोगाई यात्रेचे नियोजन करा" },

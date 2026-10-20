@@ -1,11 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import festival from "@/assets/festival.jpg";
 import { PageHero, Section, Card } from "@/components/Section";
 
 export const Route = createFileRoute("/connect")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "सूचना व पूजा चौकशी | योगेश्वरी देवी अंबाजोगाई" },
       { name: "description", content: "महत्त्वाच्या तारखा, मंदिर सूचना, पूजा चौकशी आणि समितीची माहिती." },
       { property: "og:title", content: "योगेश्वरी देवस्थानाशी संपर्कात रहा" },
@@ -61,7 +64,7 @@ function Connect() {
                 <select className="w-full rounded-md border border-input bg-background px-4 py-2">{pujas.map((p) => <option key={p}>{p}</option>)}</select>
                 <input type="date" className="w-full rounded-md border border-input bg-background px-4 py-2" />
                 <textarea placeholder="गोत्र / संदेश" rows={3} className="w-full rounded-md border border-input bg-background px-4 py-2" />
-                <button className="w-full rounded-full bg-sacred py-3 font-medium text-primary-foreground">चौकशी पाठवा</button>
+                <Button type="submit" className="w-full bg-accent text-accent-foreground hover:bg-accent/90">चौकशी पाठवा</Button>
               </form>
             )}
           </div>
