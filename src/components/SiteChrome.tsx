@@ -2,11 +2,11 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 
 const nav = [
-  { to: "/", label: "Home" },
-  { to: "/darshan", label: "Darshan & Aarti" },
-  { to: "/pilgrimage", label: "Plan a Visit" },
-  { to: "/connect", label: "Stay Connected" },
-  { to: "/heritage", label: "Heritage" },
+  { to: "/", label: "मुख्यपृष्ठ" },
+  { to: "/darshan", label: "दर्शन व आरती" },
+  { to: "/pilgrimage", label: "यात्रा नियोजन" },
+  { to: "/connect", label: "संपर्कात रहा" },
+  { to: "/heritage", label: "वारसा" },
 ] as const;
 
 export function SiteHeader() {
@@ -17,8 +17,8 @@ export function SiteHeader() {
         <Link to="/" className="flex items-center gap-3">
           <span className="flex h-10 w-10 items-center justify-center rounded-full bg-sacred font-display text-xl text-primary-foreground">ॐ</span>
           <span className="leading-tight">
-            <span className="block font-display text-xl font-semibold text-primary">Shri Yogeshwari Devi</span>
-            <span className="block text-xs tracking-widest text-muted-foreground">AMBAJOGAI · BEED</span>
+            <span className="block font-display text-xl font-semibold text-primary">श्री योगेश्वरी देवी</span>
+            <span className="block text-xs tracking-widest text-muted-foreground">अंबाजोगाई · बीड</span>
           </span>
         </Link>
         <nav className="hidden gap-6 md:flex">
@@ -28,7 +28,7 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <button className="md:hidden text-primary" onClick={() => setOpen(!open)} aria-label="Menu">☰</button>
+        <button className="md:hidden text-primary" onClick={() => setOpen(!open)} aria-label="मेनू">☰</button>
       </div>
       {open && (
         <nav className="flex flex-col gap-3 border-t border-border px-6 py-4 md:hidden">
@@ -47,16 +47,16 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-6xl gap-8 px-6 py-12 md:grid-cols-3">
         <div>
           <p className="font-display text-2xl text-gold">॥ जय योगेश्वरी माता ॥</p>
-          <p className="mt-2 text-sm opacity-80">Shri Yogeshwari Devi Sansthan, Ambajogai, Dist. Beed, Maharashtra 431517</p>
+          <p className="mt-2 text-sm opacity-80">श्री योगेश्वरी देवस्थान, अंबाजोगाई, जि. बीड, महाराष्ट्र ४३१५१७</p>
         </div>
         <div className="text-sm opacity-80">
-          <p className="font-semibold text-gold">Explore</p>
+          <p className="font-semibold text-gold">पाहा</p>
           {nav.map((n) => (<Link key={n.to} to={n.to} className="block py-0.5 hover:text-gold">{n.label}</Link>))}
         </div>
         <div className="text-sm opacity-80">
-          <p className="font-semibold text-gold">Temple Office</p>
-          <p>Open daily for devotees</p>
-          <p>Contact details via the Stay Connected page</p>
+          <p className="font-semibold text-gold">मंदिर कार्यालय</p>
+          <p>भक्तांसाठी दररोज खुले</p>
+          <p>संपर्क तपशील "संपर्कात रहा" पानावर</p>
         </div>
       </div>
     </footer>

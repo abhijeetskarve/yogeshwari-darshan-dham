@@ -8,26 +8,26 @@ import { PageHero, Section, Card } from "@/components/Section";
 export const Route = createFileRoute("/pilgrimage")({
   head: () => ({
     meta: [
-      { title: "Plan a Pilgrimage to Ambajogai | Yogeshwari Devi" },
-      { name: "description", content: "How to reach Ambajogai by air, train or road, plus stay and travel tips for devotees." },
-      { property: "og:title", content: "Plan your pilgrimage to Ambajogai" },
-      { property: "og:description", content: "Directions, transport and practical guidance for devotees." },
+      { title: "अंबाजोगाई यात्रा नियोजन | योगेश्वरी देवी" },
+      { name: "description", content: "विमान, रेल्वे किंवा रस्त्याने अंबाजोगाईला कसे पोहोचावे, निवास व प्रवासाच्या सूचना." },
+      { property: "og:title", content: "अंबाजोगाई यात्रेचे नियोजन करा" },
+      { property: "og:description", content: "भाविकांसाठी मार्ग, वाहतूक व उपयुक्त मार्गदर्शन." },
     ],
   }),
   component: Pilgrimage,
 });
 
 const modes = [
-  { title: "By Air", img: air, points: ["Latur Airport — approx. 60 km (limited flights)", "Chh. Sambhajinagar (Aurangabad) Airport — approx. 210 km", "Pune Airport — approx. 330 km", "Taxis available from all airports"] },
-  { title: "By Train", img: train, points: ["Parli Vaijnath station — approx. 25 km (nearest)", "Latur station — approx. 60 km", "Regular buses and autos from Parli to Ambajogai", "Combine with Vaidyanath Jyotirlinga darshan at Parli"] },
-  { title: "By Road", img: road, points: ["MSRTC buses from Pune, Mumbai, Latur, Beed, Nanded", "Beed — approx. 90 km · Latur — approx. 60 km", "Pune — approx. 330 km · Mumbai — approx. 480 km", "Good state highways; parking near temple"] },
+  { title: "विमानाने", img: air, points: ["लातूर विमानतळ — सुमारे ६० किमी (मर्यादित उड्डाणे)", "छत्रपती संभाजीनगर विमानतळ — सुमारे २१० किमी", "पुणे विमानतळ — सुमारे ३३० किमी", "सर्व विमानतळांवरून टॅक्सी उपलब्ध"] },
+  { title: "रेल्वेने", img: train, points: ["परळी वैजनाथ स्थानक — सुमारे २५ किमी (सर्वात जवळ)", "लातूर स्थानक — सुमारे ६० किमी", "परळीहून अंबाजोगाईसाठी नियमित बस व रिक्षा", "परळी येथे वैद्यनाथ ज्योतिर्लिंग दर्शनही घ्या"] },
+  { title: "रस्त्याने", img: road, points: ["पुणे, मुंबई, लातूर, बीड, नांदेड येथून एसटी बस", "बीड — सुमारे ९० किमी · लातूर — सुमारे ६० किमी", "पुणे — सुमारे ३३० किमी · मुंबई — सुमारे ४८० किमी", "चांगले राज्यमार्ग; मंदिराजवळ वाहनतळ"] },
 ];
 
 function Pilgrimage() {
   return (
     <>
-      <PageHero eyebrow="Plan a pilgrimage" title="Your journey to Jogai" intro="Ambajogai lies in the Balaghat ranges of Beed district, Marathwada." image={journey} />
-      <Section kicker="Getting here" title="How to reach Ambajogai">
+      <PageHero eyebrow="यात्रा नियोजन" title="जोगाईकडे आपला प्रवास" intro="अंबाजोगाई मराठवाड्यातील बीड जिल्ह्यात बालाघाट डोंगररांगांत वसले आहे." image={journey} />
+      <Section kicker="येथे कसे यावे" title="अंबाजोगाईला कसे पोहोचाल">
         <div className="grid gap-6 md:grid-cols-3">
           {modes.map((m) => (
             <div key={m.title} className="group overflow-hidden rounded-lg border border-border bg-card shadow-warm">
@@ -41,16 +41,16 @@ function Pilgrimage() {
           ))}
         </div>
         <div className="mt-10 overflow-hidden rounded-lg border border-border shadow-warm">
-          <iframe title="Map" className="h-96 w-full" loading="lazy" src="https://www.google.com/maps?q=Yogeshwari+Devi+Temple+Ambajogai&output=embed" />
+          <iframe title="नकाशा" className="h-96 w-full" loading="lazy" src="https://www.google.com/maps?q=Yogeshwari+Devi+Temple+Ambajogai&hl=mr&output=embed" />
         </div>
       </Section>
       <section className="bg-secondary">
-        <Section kicker="Practical guidance" title="Before you travel">
+        <Section kicker="उपयुक्त मार्गदर्शन" title="प्रवासापूर्वी">
           <div className="grid gap-6 md:grid-cols-2">
-            <Card title="Best time to visit">October to February is pleasant. Navratri brings large crowds — plan stay early.</Card>
-            <Card title="Where to stay">Bhakta niwas, lodges and hotels are available in Ambajogai town near the temple.</Card>
-            <Card title="Dress & conduct">Traditional modest attire is appreciated. Footwear and leather items are left outside.</Card>
-            <Card title="Nearby sacred places">Parli Vaijnath Jyotirlinga, Mukundraj Samadhi, Dasopant Samadhi and the Kholeshwar temple.</Card>
+            <Card title="भेटीचा उत्तम काळ">ऑक्टोबर ते फेब्रुवारी हवामान आल्हाददायक असते. नवरात्रात मोठी गर्दी असते — निवासाची व्यवस्था आधी करा.</Card>
+            <Card title="निवास व्यवस्था">अंबाजोगाई शहरात मंदिराजवळ भक्त निवास, लॉज व हॉटेल्स उपलब्ध आहेत.</Card>
+            <Card title="पोशाख व आचरण">पारंपरिक व सभ्य पोशाख अपेक्षित. पादत्राणे व चामड्याच्या वस्तू बाहेर ठेवाव्यात.</Card>
+            <Card title="जवळची तीर्थक्षेत्रे">परळी वैजनाथ ज्योतिर्लिंग, मुकुंदराज समाधी, दासोपंत समाधी आणि खोलेश्वर मंदिर.</Card>
           </div>
         </Section>
       </section>

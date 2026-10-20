@@ -79,10 +79,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Shri Yogeshwari Devi, Ambajogai" },
-      { name: "description", content: "Official devotee platform for Shri Yogeshwari Devi Temple, Ambajogai." },
-      { property: "og:title", content: "Shri Yogeshwari Devi, Ambajogai" },
-      { property: "og:description", content: "Official devotee platform for Shri Yogeshwari Devi Temple, Ambajogai." },
+      { title: "श्री योगेश्वरी देवी, अंबाजोगाई" },
+      { name: "description", content: "श्री योगेश्वरी देवी मंदिर, अंबाजोगाई — भक्तांसाठी अधिकृत संकेतस्थळ." },
+      { property: "og:title", content: "श्री योगेश्वरी देवी, अंबाजोगाई" },
+      { property: "og:description", content: "श्री योगेश्वरी देवी मंदिर, अंबाजोगाई — भक्तांसाठी अधिकृत संकेतस्थळ." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -92,7 +92,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Mukta:wght@400;500;600&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi&family=Cormorant+Garamond:wght@500;600;700&family=Mukta:wght@400;500;600&display=swap" },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
@@ -104,7 +104,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="mr">
       <head>
         <HeadContent />
       </head>

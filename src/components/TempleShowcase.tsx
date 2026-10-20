@@ -6,28 +6,28 @@ import gate from "@/assets/t-DSCN3469.jpg.asset.json";
 
 const panels = [
   {
-    title: "The Sanctum",
-    sub: "Darshan of Mata",
+    title: "गाभारा",
+    sub: "मातेचे दर्शन",
     img: deity.url,
-    text: "The self-manifested form of Shri Yogeshwari Devi, adorned in silver and vermilion, receives devotees from dawn till night.",
-    points: ["Kakad Aarti at 5:00 AM", "Special alankar on Navratri days", "Sadi-choli and oti offerings"],
-    cta: { to: "/darshan" as const, label: "View darshan & aarti" },
+    text: "चांदी व शेंदुराने सजलेली श्री योगेश्वरी देवीची स्वयंभू मूर्ती पहाटेपासून रात्रीपर्यंत भक्तांना दर्शन देते.",
+    points: ["काकड आरती पहाटे ५:००", "नवरात्रात विशेष अलंकार", "साडी-चोळी व ओटी अर्पण"],
+    cta: { to: "/darshan" as const, label: "दर्शन व आरती पाहा" },
   },
   {
-    title: "The Temple",
-    sub: "Architecture & courtyard",
+    title: "मंदिर",
+    sub: "स्थापत्य व प्रांगण",
     img: shikhar.url,
-    text: "A colourful shikhar rises over domed shrines and a spacious courtyard on the banks of the Jayanti river.",
-    points: ["Ornate painted shikhar", "Deepmal and courtyard shrines", "Peaceful prakar for parikrama"],
-    cta: { to: "/heritage" as const, label: "Explore the heritage" },
+    text: "जयंती नदीच्या काठी घुमटाकार मंदिरे व प्रशस्त प्रांगणावर रंगीबेरंगी शिखर उभे आहे.",
+    points: ["सुशोभित रंगीत शिखर", "दीपमाळ व प्रांगणातील मंदिरे", "प्रदक्षिणेसाठी शांत प्राकार"],
+    cta: { to: "/heritage" as const, label: "वारसा जाणून घ्या" },
   },
   {
-    title: "Welcome Gate",
-    sub: "Begin your pilgrimage",
+    title: "स्वागत द्वार",
+    sub: "यात्रेची सुरुवात",
     img: gate.url,
-    text: "The Devasthan's main gate greets pilgrims arriving in Ambajogai from across Maharashtra, Goa and beyond.",
-    points: ["25 km from Parli Vaijnath station", "MSRTC buses from all major cities", "Bhakta niwas near the temple"],
-    cta: { to: "/pilgrimage" as const, label: "Plan your visit" },
+    text: "महाराष्ट्र, गोवा व इतर भागांतून येणाऱ्या भाविकांचे देवस्थानाचे मुख्य प्रवेशद्वार स्वागत करते.",
+    points: ["परळी वैजनाथ स्थानकापासून २५ किमी", "सर्व मोठ्या शहरांतून एसटी बस", "मंदिराजवळ भक्त निवास"],
+    cta: { to: "/pilgrimage" as const, label: "यात्रेचे नियोजन करा" },
   },
 ];
 

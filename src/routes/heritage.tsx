@@ -5,27 +5,27 @@ import { PageHero, Section, Card } from "@/components/Section";
 export const Route = createFileRoute("/heritage")({
   head: () => ({
     meta: [
-      { title: "History & Konkani Heritage | Yogeshwari Devi Ambajogai" },
-      { name: "description", content: "The legend of Yogeshwari Mata and the kuldevi traditions of the Konkani community." },
-      { property: "og:title", content: "Heritage of Yogeshwari Mata" },
-      { property: "og:description", content: "History of Yogeshwari Mata and traditions of the Konkani community." },
+      { title: "इतिहास व कोकणस्थ वारसा | योगेश्वरी देवी अंबाजोगाई" },
+      { name: "description", content: "योगेश्वरी मातेची आख्यायिका आणि कोकणस्थ समाजाच्या कुलदेवता परंपरा." },
+      { property: "og:title", content: "योगेश्वरी मातेचा वारसा" },
+      { property: "og:description", content: "योगेश्वरी मातेचा इतिहास व कोकणस्थ समाजाच्या परंपरा." },
     ],
   }),
   component: Heritage,
 });
 
 const timeline = [
-  ["The legend", "Devi journeyed from the Konkan to wed Lord Vaidyanath of Parli. The auspicious moment passed, and she chose to remain here as the eternal maiden — Kumarika — known lovingly as Jogai."],
-  ["The temple", "An ancient shrine in the Hemadpanti tradition stands on the banks of the Jayanti river, its sanctum holding the self-manifested form of Mata."],
-  ["A seat of learning", "Ambajogai nurtured saints and poets such as Mukundraj, the first Marathi poet, and Dasopant, deepening its spiritual heritage."],
-  ["Today", "Lakhs of devotees from Maharashtra, Goa, Karnataka and beyond arrive each year, especially during Margashirsha Navratri."],
+  ["आख्यायिका", "परळीच्या वैद्यनाथाशी विवाहासाठी देवी कोकणातून आली. शुभ मुहूर्त टळला आणि ती येथेच कुमारिका रूपात कायमची राहिली — प्रेमाने तिला 'जोगाई' म्हणतात."],
+  ["मंदिर", "जयंती नदीच्या काठी हेमाडपंती परंपरेतील प्राचीन मंदिर उभे असून गाभाऱ्यात मातेचे स्वयंभू रूप आहे."],
+  ["विद्येचे केंद्र", "आद्यकवी मुकुंदराज आणि दासोपंत यांसारख्या संत-कवींनी अंबाजोगाईचा आध्यात्मिक वारसा समृद्ध केला."],
+  ["आज", "महाराष्ट्र, गोवा, कर्नाटक व इतरत्र येथून दरवर्षी लाखो भाविक येतात, विशेषतः मार्गशीर्ष नवरात्रात."],
 ];
 
 function Heritage() {
   return (
     <>
-      <PageHero eyebrow="Preserve our heritage" title="The story of Jogai" intro="Centuries of devotion, legend and community woven around Mata." image={hero} />
-      <Section kicker="History" title="Yogeshwari Mata through time">
+      <PageHero eyebrow="आपला वारसा जपा" title="जोगाईची कथा" intro="मातेभोवती गुंफलेली शतकानुशतकांची भक्ती, आख्यायिका आणि समाज." image={hero} />
+      <Section kicker="इतिहास" title="काळाच्या ओघात योगेश्वरी माता">
         <ol className="relative space-y-8 border-l-2 border-gold pl-8">
           {timeline.map(([t, d]) => (
             <li key={t} className="relative">
@@ -37,16 +37,16 @@ function Heritage() {
         </ol>
       </Section>
       <section className="bg-secondary">
-        <Section kicker="Our community" title="Konkani traditions">
+        <Section kicker="आपला समाज" title="कोकणस्थ परंपरा">
           <div className="grid gap-6 md:grid-cols-3">
-            <Card title="Kuldevi">For many Konkanastha families, Yogeshwari is the family deity. A visit to Jogai marks every important milestone.</Card>
-            <Card title="Kulachar">Newlyweds seek Mata's blessing, and children's first offerings (jaavel) are made at her feet.</Card>
-            <Card title="Navratri rituals">Ghatasthapana, sadi-choli offering, gondhal and the bodan ritual are performed in homes and at the temple.</Card>
+            <Card title="कुलदेवता">अनेक कोकणस्थ कुटुंबांची योगेश्वरी ही कुलदेवता आहे. प्रत्येक महत्त्वाच्या प्रसंगी जोगाईचे दर्शन घेतले जाते.</Card>
+            <Card title="कुलाचार">नवविवाहित दांपत्य मातेचे आशीर्वाद घेतात आणि मुलांचे जावळ मातेच्या चरणी केले जाते.</Card>
+            <Card title="नवरात्रातील विधी">घटस्थापना, साडी-चोळी अर्पण, गोंधळ आणि बोडण हे विधी घरी व मंदिरात केले जातात.</Card>
           </div>
         </Section>
       </section>
-      <Section kicker="Share your story" title="Help preserve our memory">
-        <p className="max-w-2xl text-muted-foreground">Families holding old photographs, letters or oral histories connected to Mata are invited to share them with the temple committee for our heritage archive.</p>
+      <Section kicker="आपली आठवण सांगा" title="आपला वारसा जपूया">
+        <p className="max-w-2xl text-muted-foreground">मातेशी संबंधित जुनी छायाचित्रे, पत्रे किंवा मौखिक इतिहास असलेल्या कुटुंबांनी ते मंदिर समितीकडे वारसा संग्रहासाठी द्यावेत, ही विनंती.</p>
       </Section>
     </>
   );
