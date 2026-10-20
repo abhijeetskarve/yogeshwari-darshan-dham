@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
+import { ArrowUpRight, Plus, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import shikhar from "@/assets/t-DSCN3429.jpg.asset.json";
 import deity from "@/assets/t-ygd.jpg.asset.json";
 import gate from "@/assets/t-DSCN3469.jpg.asset.json";
@@ -32,57 +34,36 @@ const panels = [
 ];
 
 export function TempleShowcase() {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState<number | null>(null);
   const [open, setOpen] = useState(false);
+  const selected = active === null ? undefined : panels[active];
   return (
-    <div className="flex h-[620px] flex-col gap-2 overflow-hidden rounded-lg shadow-warm md:h-[560px] md:flex-row md:gap-0">
-      {panels.map((p, i) => {
-        const on = i === active;
-        const show = on && open;
-        return (
-          <div
-            key={p.title}
-            role="button"
-            tabIndex={0}
-            onClick={() => { if (!on) { setActive(i); setOpen(false); } }}
-            onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && !on && (setActive(i), setOpen(false))}
-            aria-expanded={on}
-            className={`group relative cursor-pointer overflow-hidden transition-[flex-grow] duration-700 ease-out ${on ? "grow-[5]" : "grow"} basis-0`}
-          >
-            <img src={p.img} alt={p.title} loading="lazy" className={`absolute inset-0 h-full w-full object-cover transition duration-700 ${on ? "scale-100" : "scale-110 grayscale-[40%] group-hover:grayscale-0"}`} />
-            <div className={`absolute inset-x-0 bottom-0 h-1/2 bg-veil transition-opacity ${show ? "opacity-100" : "opacity-70"}`} />
-            <div className="relative flex h-full flex-col items-center justify-end p-4 text-primary-foreground">
-              {!show && (
-                <button
-                  type="button"
-                  onClick={(e) => { e.stopPropagation(); setActive(i); setOpen(true); }}
-                  className="rounded-full bg-sacred px-5 py-2 text-sm font-medium text-primary-foreground shadow-warm transition hover:scale-105"
-                >
-                  {p.title} — माहिती
-                </button>
-              )}
-              {show && (
-                <div className="w-full max-w-xl rounded-lg bg-background/95 p-5 text-foreground backdrop-blur animate-in fade-in slide-in-from-bottom-4">
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
-                      <h3 className="text-2xl font-semibold text-primary">{p.title}</h3>
-                      <p className="text-sm text-accent">{p.sub}</p>
-                    </div>
-                    <button type="button" aria-label="बंद करा" onClick={(e) => { e.stopPropagation(); setOpen(false); }} className="rounded-full px-2 text-xl text-muted-foreground hover:text-primary">×</button>
-                  </div>
-                  <p className="mt-2">{p.text}</p>
-                  <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-                    {p.points.map((pt) => <li key={pt}><span className="text-accent">✦</span> {pt}</li>)}
-                  </ul>
-                  <Link to={p.cta.to} onClick={(e) => e.stopPropagation()} className="mt-3 inline-block rounded-full bg-sacred px-5 py-2 text-sm font-medium text-primary-foreground">
-                    {p.cta.label}
-                  </Link>
-                </div>
-              )}
+    <div>
+      <div className="flex h-[340px] gap-2 md:h-[380px] md:gap-3">
+        {panels.map((p, i) => {
+          const on = i === active;
+          return (
+            <div key={p.title} className={`group relative min-w-0 basis-0 overflow-hidden rounded-md transition-[flex-grow] duration-500 ease-out ${on ? "grow-[2] md:grow-[2.4]" : "grow"}`}>
+              <img src={p.img} alt={p.title} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-veil" />
+              <div className="absolute inset-x-0 bottom-4 flex justify-center px-1 md:bottom-5 md:px-3">
+                <Button onClick={() => { setActive(i); setOpen(!(on && open)); }} aria-expanded={on && open} aria-controls="temple-details" className="h-auto min-h-9 max-w-full gap-1 whitespace-normal bg-background px-2 py-2 text-xs text-primary shadow-warm hover:bg-gold md:gap-2 md:px-5 md:text-sm">
+                  {p.title} <Plus className="size-3 md:size-4" />
+                </Button>
+              </div>
             </div>
+          );
+        })}
+      </div>
+      {open && selected && (
+        <div id="temple-details" className="relative mt-3 border-l-2 border-accent bg-secondary px-5 py-5 animate-in fade-in slide-in-from-top-2 md:px-7">
+          <Button variant="ghost" size="icon" aria-label="बंद करा" className="absolute right-2 top-2" onClick={() => setOpen(false)}><X /></Button>
+          <div className="grid gap-4 pr-7 md:grid-cols-[1.3fr_1fr] md:gap-10">
+            <div><p className="text-xs text-accent">{selected.sub}</p><h2 className="mt-1 text-2xl font-semibold">{selected.title}</h2><p className="mt-2 text-sm text-muted-foreground">{selected.text}</p></div>
+            <div><ul className="space-y-1 text-sm text-muted-foreground">{selected.points.map((pt) => <li key={pt} className="flex gap-2"><span className="text-accent">·</span>{pt}</li>)}</ul><Button asChild variant="link" className="mt-2 h-auto p-0 text-accent"><Link to={selected.cta.to}>{selected.cta.label}<ArrowUpRight /></Link></Button></div>
           </div>
-        );
-      })}
+        </div>
+      )}
     </div>
   );
 }

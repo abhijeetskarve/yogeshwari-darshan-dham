@@ -1,82 +1,74 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import hero from "@/assets/hero.jpg";
-import aarti from "@/assets/aarti.jpg";
-import festival from "@/assets/festival.jpg";
-import journey from "@/assets/journey.jpg";
+import { ArrowUpRight, Plane, TrainFront, Car, CalendarDays, Clock3, MapPin } from "lucide-react";
+import air from "@/assets/by-air.jpg";
+import train from "@/assets/by-train.jpg";
+import road from "@/assets/by-road.jpg";
+import deity from "@/assets/t-ygd.jpg.asset.json";
+import temple from "@/assets/t-DSCN3429.jpg.asset.json";
 import { TempleShowcase } from "@/components/TempleShowcase";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { title: "श्री योगेश्वरी देवी मंदिर, अंबाजोगाई | अधिकृत भक्त संकेतस्थळ" },
+      { title: "श्री योगेश्वरी देवी मंदिर, अंबाजोगाई | भक्त संकेतस्थळ" },
       { name: "description", content: "श्री योगेश्वरी देवी, अंबाजोगाई — दर्शन, आरती, उत्सव, यात्रा मार्गदर्शन व वारसा." },
       { property: "og:title", content: "श्री योगेश्वरी देवी मंदिर, अंबाजोगाई" },
       { property: "og:description", content: "मंदिराचा अनुभव घ्या, मातेशी जोडा आणि अंबाजोगाई यात्रेचे नियोजन करा." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,
 });
 
-const paths = [
-  { to: "/darshan", title: "मातेशी जोडा", text: "अधिकृत दर्शन छायाचित्रे, आरती ध्वनिमुद्रणे आणि उत्सवांची माहिती.", img: aarti },
-  { to: "/pilgrimage", title: "यात्रेचे नियोजन", text: "विमान, रेल्वे किंवा रस्त्याने अंबाजोगाईला कसे पोहोचावे याचे मार्गदर्शन.", img: journey },
-  { to: "/connect", title: "संपर्कात रहा", text: "महत्त्वाच्या तारखा, सूचना, पूजा चौकशी आणि मंदिर समिती.", img: festival },
-  { to: "/heritage", title: "आपला वारसा", text: "योगेश्वरी मातेची कथा आणि कोकणस्थ समाजाच्या परंपरा.", img: hero },
-] as const;
+const travel = [
+  { title: "विमानाने", image: air, icon: Plane },
+  { title: "रेल्वेने", image: train, icon: TrainFront },
+  { title: "रस्त्याने", image: road, icon: Car },
+];
 
 function Index() {
   return (
     <>
-      <section className="mx-auto max-w-6xl px-6 pt-10">
-        <div className="text-center">
-          <p className="font-display text-xl text-accent">॥ श्री योगेश्वरी देवी प्रसन्न ॥</p>
-          <h1 className="mt-2 text-4xl font-semibold text-primary md:text-5xl">योगेश्वरी मातेच्या दरबारात आपले स्वागत</h1>
-          <div className="rangoli-divider mx-auto my-5 max-w-xs" />
+      <section className="mx-auto max-w-6xl px-6 pb-8 pt-7 md:pt-9">
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
+          <div><p className="mb-1 text-sm text-accent">॥ श्री योगेश्वरी देवी प्रसन्न ॥</p><h1 className="text-3xl font-semibold text-primary md:text-4xl">श्री योगेश्वरी देवी, अंबाजोगाई</h1><p className="mt-2 text-sm text-muted-foreground">योगेश्वरी मातेच्या दरबारात आपले स्वागत.</p></div>
+          <Button asChild variant="link" className="h-auto p-0 text-accent"><Link to="/darshan">दर्शन व आरती <ArrowUpRight /></Link></Button>
         </div>
         <TempleShowcase />
-        <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <Link to="/darshan" className="rounded-full bg-sacred px-7 py-3 font-medium text-primary-foreground shadow-warm transition hover:scale-105">दर्शन व आरतीच्या वेळा</Link>
-          <Link to="/pilgrimage" className="rounded-full border border-primary px-7 py-3 font-medium text-primary transition hover:bg-primary hover:text-primary-foreground">यात्रेचे नियोजन करा</Link>
+      </section>
+
+      <section className="border-y border-border bg-secondary">
+        <div className="mx-auto grid max-w-6xl gap-4 px-6 py-5 sm:grid-cols-3">
+          {[{ icon: Clock3, label: "मंदिर उघडण्याची वेळ", value: "दररोज पहाटे" }, { icon: CalendarDays, label: "मुख्य उत्सव", value: "मार्गशीर्ष नवरात्र" }, { icon: MapPin, label: "देवस्थान", value: "अंबाजोगाई, बीड" }].map((item) => <div key={item.label} className="flex items-center gap-3"><item.icon className="size-5 shrink-0 text-accent" /><div><p className="text-xs text-muted-foreground">{item.label}</p><p className="font-medium text-primary">{item.value}</p></div></div>)}
         </div>
       </section>
 
-      <section className="mt-12 bg-primary text-primary-foreground">
-        <div className="mx-auto grid max-w-6xl gap-6 px-6 py-6 text-center md:grid-cols-3">
-          <div><p className="text-xs text-gold">मंदिर उघडण्याची वेळ</p><p className="font-display text-2xl">दररोज पहाटे</p></div>
-          <div><p className="text-xs text-gold">पुढील मुख्य उत्सव</p><p className="font-display text-2xl">मार्गशीर्ष नवरात्र</p></div>
-          <div><p className="text-xs text-gold">स्थान</p><p className="font-display text-2xl">अंबाजोगाई, बीड</p></div>
+      <section className="mx-auto grid max-w-6xl gap-7 px-6 py-10 lg:grid-cols-[1.6fr_1fr_0.9fr]">
+        <div>
+          <div className="mb-4 flex items-center justify-between"><h2 className="text-2xl font-semibold">मातेचे दर्शन</h2><Link to="/darshan" aria-label="दर्शन छायाचित्रे पाहा" className="text-accent"><ArrowUpRight className="size-5" /></Link></div>
+          <Link to="/darshan" className="group block overflow-hidden rounded-md"><img src={deity.url} alt="श्री योगेश्वरी मातेचे दर्शन" loading="lazy" className="h-64 w-full object-cover transition duration-500 group-hover:scale-105" /></Link>
+          <p className="mt-3 text-sm text-muted-foreground">श्री योगेश्वरी मातेच्या चरणी विनम्र प्रणाम.</p>
         </div>
+        <div>
+          <h2 className="mb-4 text-2xl font-semibold">उत्सव व परंपरा</h2>
+          {[{ title: "मार्गशीर्ष नवरात्र", text: "पौर्णिमा उत्सव व पालखी", image: deity.url, to: "/darshan" as const }, { title: "शारदीय नवरात्र", text: "घटस्थापना व मातेचे अलंकार", image: deity.url, to: "/darshan" as const }, { title: "जोगाईचा वारसा", text: "इतिहास व कोकणस्थ परंपरा", image: temple.url, to: "/heritage" as const }].map((item) => <Link key={item.title} to={item.to} className="group flex gap-3 border-b border-border py-3 first:pt-0"><img src={item.image} alt="" loading="lazy" className="h-16 w-16 shrink-0 rounded-sm object-cover" /><div><h3 className="font-sans text-base font-semibold group-hover:text-accent">{item.title}</h3><p className="mt-1 text-xs text-muted-foreground">{item.text}</p></div></Link>)}
+          <Button asChild variant="link" className="mt-3 p-0 text-accent"><Link to="/connect">महत्त्वाच्या तारखा <ArrowUpRight /></Link></Button>
+        </div>
+        <aside className="space-y-4 lg:pt-1">
+          <div className="border-l-2 border-accent bg-secondary p-5"><Clock3 className="mb-2 size-5 text-accent" /><h2 className="text-xl font-semibold">दर्शन व आरती</h2><p className="mt-2 text-sm text-muted-foreground">दैनंदिन उपासना आणि आरतीच्या वेळा</p><Button asChild className="mt-4 bg-accent text-accent-foreground hover:bg-accent/90"><Link to="/darshan">वेळापत्रक <ArrowUpRight /></Link></Button></div>
+          <div className="border-l-2 border-gold bg-secondary p-5"><h2 className="text-xl font-semibold">मातेच्या चरणी सेवा</h2><p className="mt-2 text-sm text-muted-foreground">पूजा, अभिषेक व कुलाचार चौकशी</p><Button asChild variant="outline" className="mt-4"><Link to="/connect">पूजा चौकशी <ArrowUpRight /></Link></Button></div>
+        </aside>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="text-center">
-          <p className="text-sm text-accent">मातेसोबतचा प्रवास</p>
-          <h2 className="mt-2 text-4xl font-semibold text-primary md:text-5xl">आम्ही आपली कशी सेवा करू?</h2>
-          <div className="rangoli-divider mx-auto my-6 max-w-xs" />
-        </div>
-        <div className="grid gap-6 md:grid-cols-2">
-          {paths.map((p) => (
-            <Link key={p.to} to={p.to} className="group relative h-72 overflow-hidden rounded-lg shadow-warm">
-              <img src={p.img} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-110" />
-              <div className="absolute inset-0 bg-veil" />
-              <div className="absolute bottom-0 p-6 text-primary-foreground">
-                <h3 className="text-3xl font-semibold">{p.title}</h3>
-                <p className="mt-1 opacity-90">{p.text}</p>
-                <span className="mt-3 inline-block text-sm text-gold">पुढे जा →</span>
-              </div>
-            </Link>
-          ))}
+      <section className="border-t border-border bg-secondary">
+        <div className="mx-auto max-w-6xl px-6 py-10">
+          <div className="mb-5 flex flex-wrap items-end justify-between gap-3"><div><p className="text-xs text-accent">मातेकडे आपला प्रवास</p><h2 className="mt-1 text-3xl font-semibold">यात्रेचे नियोजन</h2></div><Button asChild variant="link" className="h-auto p-0 text-accent"><Link to="/pilgrimage">संपूर्ण मार्गदर्शन <ArrowUpRight /></Link></Button></div>
+          <div className="grid gap-5 sm:grid-cols-3">{travel.map((m) => <Link key={m.title} to="/pilgrimage" className="group overflow-hidden rounded-md border border-border bg-card"><img src={m.image} alt={m.title} loading="lazy" className="aspect-[16/9] w-full object-cover transition duration-500 group-hover:scale-105" /><div className="flex items-center gap-3 px-4 py-3"><m.icon className="size-5 text-accent" /><h3 className="font-sans text-lg font-semibold">{m.title}</h3><ArrowUpRight className="ml-auto size-4 text-muted-foreground" /></div></Link>)}</div>
         </div>
       </section>
-
-      <section className="bg-secondary">
-        <div className="mx-auto max-w-3xl px-6 py-20 text-center">
-          <p className="font-display text-3xl leading-relaxed text-primary md:text-4xl">“सर्वमङ्गलमाङ्गल्ये शिवे सर्वार्थसाधिके। शरण्ये त्र्यम्बके गौरि नारायणि नमोऽस्तु ते॥”</p>
-          <p className="mt-4 text-muted-foreground">सर्व मंगलांमध्ये मंगलरूप असलेल्या आईला नमस्कार.</p>
-        </div>
-      </section>
+      <section className="mx-auto max-w-4xl px-6 py-12 text-center"><p className="mb-3 text-sm text-accent">॥ जय योगेश्वरी माता ॥</p><p className="font-display text-xl leading-loose text-primary md:text-2xl">सर्वमङ्गलमाङ्गल्ये शिवे सर्वार्थसाधिके।<br />शरण्ये त्र्यम्बके गौरि नारायणि नमोऽस्तु ते॥</p></section>
     </>
   );
 }
