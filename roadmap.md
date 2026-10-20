@@ -1,6 +1,6 @@
 # Website visual refresh
-- [ ] Improve readability and visible navigation for village devotees.
-- [ ] Simplify homepage actions and verify photo details and mobile navigation.
+- [x] Improve readability and visible navigation for village devotees.
+- [x] Simplify homepage actions and verify photo details and mobile navigation.
 - [x] Refresh the shared colors, navigation, and page formatting.
 - [x] Redesign the homepage and preserve click-to-open temple photography.
 - [x] Verify pages and photo interactions at desktop and mobile sizes.
