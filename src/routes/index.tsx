@@ -3,6 +3,7 @@ import hero from "@/assets/hero.jpg";
 import aarti from "@/assets/aarti.jpg";
 import festival from "@/assets/festival.jpg";
 import journey from "@/assets/journey.jpg";
+import { TempleShowcase } from "@/components/TempleShowcase";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -46,6 +47,15 @@ function Index() {
           <div><p className="text-xs uppercase tracking-widest text-gold">Next major festival</p><p className="font-display text-2xl">Margashirsha Navratri</p></div>
           <div><p className="text-xs uppercase tracking-widest text-gold">Location</p><p className="font-display text-2xl">Ambajogai, Beed</p></div>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 pt-20">
+        <div className="text-center">
+          <p className="text-sm uppercase tracking-[0.3em] text-accent">Inside the Devasthan</p>
+          <h2 className="mt-2 text-4xl font-semibold text-primary md:text-5xl">Discover the temple</h2>
+          <div className="rangoli-divider mx-auto my-6 max-w-xs" />
+        </div>
+        <TempleShowcase />
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-20">

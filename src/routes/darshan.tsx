@@ -1,7 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import aarti from "@/assets/aarti.jpg";
-import hero from "@/assets/hero.jpg";
-import festival from "@/assets/festival.jpg";
+import g1 from "@/assets/t-ygd.jpg.asset.json";
+import g2 from "@/assets/t-DSCN3429.jpg.asset.json";
+import g3 from "@/assets/t-DSCN3411.jpg.asset.json";
+import g4 from "@/assets/t-DSCN3455.jpg.asset.json";
+import g5 from "@/assets/t-DSCN3469.jpg.asset.json";
+import g6 from "@/assets/t-2332.jpg.asset.json";
 import { PageHero, Section, Card } from "@/components/Section";
 
 export const Route = createFileRoute("/darshan")({
@@ -49,7 +53,7 @@ function Darshan() {
       <section className="bg-secondary">
         <Section kicker="Approved by the Sansthan" title="Darshan gallery">
           <div className="grid gap-4 md:grid-cols-3">
-            {[hero, aarti, festival].map((src, i) => (
+            {[g1.url, g2.url, g3.url, g4.url, g5.url, g6.url].map((src, i) => (
               <img key={i} src={src} alt="Temple darshan" loading="lazy" className="h-72 w-full rounded-lg object-cover shadow-warm" />
             ))}
           </div>
