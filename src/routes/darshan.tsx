@@ -1,7 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import aarti from "@/assets/aarti.jpg";
-import hero from "@/assets/hero.jpg";
-import festival from "@/assets/festival.jpg";
 import g1 from "@/assets/t-ygd.jpg.asset.json";
 import g2 from "@/assets/t-DSCN3429.jpg.asset.json";
 import g3 from "@/assets/t-DSCN3411.jpg.asset.json";
