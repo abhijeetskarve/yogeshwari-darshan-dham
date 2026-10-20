@@ -54,7 +54,7 @@ export function TempleShowcase() {
           return (
             <div key={p.title} className={`group min-w-0 md:relative md:basis-0 md:overflow-hidden md:rounded-md md:transition-[flex-grow] md:duration-500 md:ease-out ${on ? "md:grow-[2.4]" : "md:grow"}`}>
               <div className="overflow-hidden rounded-t-md bg-secondary md:rounded-none">
-                <img src={p.img} alt={p.title} className="aspect-[4/3] w-full object-contain md:absolute md:inset-0 md:h-full md:object-cover md:transition-transform md:duration-500 md:group-hover:scale-105" />
+                <img src={p.img} alt={p.title} className="h-auto w-full object-contain md:absolute md:inset-0 md:h-full md:object-cover md:transition-transform md:duration-500 md:group-hover:scale-105" />
               </div>
               <div className="absolute inset-x-0 bottom-0 hidden h-24 bg-veil md:block" />
               <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-b-md border border-t-0 border-border bg-card px-4 py-3 md:absolute md:inset-x-0 md:bottom-5 md:flex md:justify-center md:border-0 md:bg-transparent md:px-3 md:py-0">
