@@ -10,4 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Keep shared page styling in the semantic tokens and SiteChrome/Section components so visual updates remain consistent across all pages.
-- TempleShowcase keeps photo selection separate from details visibility; show details below the image strip so authentic photos remain unobscured.
+- TempleShowcase keeps photo selection separate from details visibility; use stacked uncropped photos with details beneath the selected photo on mobile, and an expanding photo strip with shared details below on desktop so photos remain unobscured.
