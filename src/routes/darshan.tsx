@@ -11,6 +11,8 @@ import { PageHero, Section, Card } from "@/components/Section";
 export const Route = createFileRoute("/darshan")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "दर्शन, आरती व उत्सव | योगेश्वरी देवी अंबाजोगाई" },
       { name: "description", content: "दैनंदिन दर्शन व आरतीच्या वेळा, अधिकृत छायाचित्रे, आरती ध्वनिमुद्रणे व उत्सवांची माहिती." },
       { property: "og:title", content: "दर्शन व आरती — योगेश्वरी देवी" },

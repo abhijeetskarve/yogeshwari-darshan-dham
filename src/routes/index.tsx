@@ -8,6 +8,8 @@ import { TempleShowcase } from "@/components/TempleShowcase";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "श्री योगेश्वरी देवी मंदिर, अंबाजोगाई | अधिकृत भक्त संकेतस्थळ" },
       { name: "description", content: "श्री योगेश्वरी देवी, अंबाजोगाई — दर्शन, आरती, उत्सव, यात्रा मार्गदर्शन व वारसा." },
       { property: "og:title", content: "श्री योगेश्वरी देवी मंदिर, अंबाजोगाई" },
