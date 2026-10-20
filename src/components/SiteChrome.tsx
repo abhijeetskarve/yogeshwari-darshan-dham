@@ -18,7 +18,7 @@ export function SiteHeader() {
           <span className="flex h-10 w-10 items-center justify-center rounded-full bg-sacred font-display text-xl text-primary-foreground">ॐ</span>
           <span className="leading-tight">
             <span className="block font-display text-xl font-semibold text-primary">श्री योगेश्वरी देवी</span>
-            <span className="block text-xs tracking-widest text-muted-foreground">अंबाजोगाई · बीड</span>
+            <span className="block text-xs text-muted-foreground">अंबाजोगाई · बीड</span>
           </span>
         </Link>
         <nav className="hidden gap-6 md:flex">

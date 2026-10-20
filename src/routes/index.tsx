@@ -43,15 +43,15 @@ function Index() {
 
       <section className="bg-primary text-primary-foreground">
         <div className="mx-auto grid max-w-6xl gap-6 px-6 py-6 text-center md:grid-cols-3">
-          <div><p className="text-xs tracking-widest text-gold">मंदिर उघडण्याची वेळ</p><p className="font-display text-2xl">दररोज पहाटे</p></div>
-          <div><p className="text-xs tracking-widest text-gold">पुढील मुख्य उत्सव</p><p className="font-display text-2xl">मार्गशीर्ष नवरात्र</p></div>
-          <div><p className="text-xs tracking-widest text-gold">स्थान</p><p className="font-display text-2xl">अंबाजोगाई, बीड</p></div>
+          <div><p className="text-xs text-gold">मंदिर उघडण्याची वेळ</p><p className="font-display text-2xl">दररोज पहाटे</p></div>
+          <div><p className="text-xs text-gold">पुढील मुख्य उत्सव</p><p className="font-display text-2xl">मार्गशीर्ष नवरात्र</p></div>
+          <div><p className="text-xs text-gold">स्थान</p><p className="font-display text-2xl">अंबाजोगाई, बीड</p></div>
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 pt-20">
         <div className="text-center">
-          <p className="text-sm tracking-[0.3em] text-accent">देवस्थानाच्या आत</p>
+          <p className="text-sm text-accent">देवस्थानाच्या आत</p>
           <h2 className="mt-2 text-4xl font-semibold text-primary md:text-5xl">मंदिराचे दर्शन घ्या</h2>
           <div className="rangoli-divider mx-auto my-6 max-w-xs" />
         </div>
@@ -60,7 +60,7 @@ function Index() {
 
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="text-center">
-          <p className="text-sm tracking-[0.3em] text-accent">मातेसोबतचा प्रवास</p>
+          <p className="text-sm text-accent">मातेसोबतचा प्रवास</p>
           <h2 className="mt-2 text-4xl font-semibold text-primary md:text-5xl">आम्ही आपली कशी सेवा करू?</h2>
           <div className="rangoli-divider mx-auto my-6 max-w-xs" />
         </div>
