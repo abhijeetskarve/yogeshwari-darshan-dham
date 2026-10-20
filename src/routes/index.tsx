@@ -27,35 +27,25 @@ const paths = [
 function Index() {
   return (
     <>
-      <section className="relative h-[92vh] min-h-[560px] overflow-hidden">
-        <img src={hero} alt="पहाटेचे श्री योगेश्वरी देवी मंदिर" width={1920} height={1088} className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-veil" />
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 text-center text-primary-foreground">
-          <p className="font-display text-2xl text-gold">॥ श्री योगेश्वरी देवी प्रसन्न ॥</p>
-          <h1 className="mt-4 text-5xl font-semibold leading-tight md:text-7xl">योगेश्वरी मातेच्या<br />दरबारात आपले स्वागत</h1>
-          <p className="mt-5 max-w-2xl text-lg opacity-90">कोकणस्थांची कुलदेवता, अंबाजोगाईची जोगाई — शतकानुशतके बालाघाटच्या डोंगररांगांत भक्तांना आशीर्वाद देणारी आई.</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link to="/darshan" className="rounded-full bg-sacred px-7 py-3 font-medium text-primary-foreground shadow-warm transition hover:scale-105">दर्शन व आरतीच्या वेळा</Link>
-            <Link to="/pilgrimage" className="rounded-full border border-gold px-7 py-3 font-medium text-gold transition hover:bg-gold hover:text-maroon-deep">यात्रेचे नियोजन करा</Link>
-          </div>
+      <section className="mx-auto max-w-6xl px-6 pt-10">
+        <div className="text-center">
+          <p className="font-display text-xl text-accent">॥ श्री योगेश्वरी देवी प्रसन्न ॥</p>
+          <h1 className="mt-2 text-4xl font-semibold text-primary md:text-5xl">योगेश्वरी मातेच्या दरबारात आपले स्वागत</h1>
+          <div className="rangoli-divider mx-auto my-5 max-w-xs" />
+        </div>
+        <TempleShowcase />
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <Link to="/darshan" className="rounded-full bg-sacred px-7 py-3 font-medium text-primary-foreground shadow-warm transition hover:scale-105">दर्शन व आरतीच्या वेळा</Link>
+          <Link to="/pilgrimage" className="rounded-full border border-primary px-7 py-3 font-medium text-primary transition hover:bg-primary hover:text-primary-foreground">यात्रेचे नियोजन करा</Link>
         </div>
       </section>
 
-      <section className="bg-primary text-primary-foreground">
+      <section className="mt-12 bg-primary text-primary-foreground">
         <div className="mx-auto grid max-w-6xl gap-6 px-6 py-6 text-center md:grid-cols-3">
           <div><p className="text-xs text-gold">मंदिर उघडण्याची वेळ</p><p className="font-display text-2xl">दररोज पहाटे</p></div>
           <div><p className="text-xs text-gold">पुढील मुख्य उत्सव</p><p className="font-display text-2xl">मार्गशीर्ष नवरात्र</p></div>
           <div><p className="text-xs text-gold">स्थान</p><p className="font-display text-2xl">अंबाजोगाई, बीड</p></div>
         </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 pt-20">
-        <div className="text-center">
-          <p className="text-sm text-accent">देवस्थानाच्या आत</p>
-          <h2 className="mt-2 text-4xl font-semibold text-primary md:text-5xl">मंदिराचे दर्शन घ्या</h2>
-          <div className="rangoli-divider mx-auto my-6 max-w-xs" />
-        </div>
-        <TempleShowcase />
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-20">
