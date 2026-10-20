@@ -79,8 +79,8 @@
   --secondary: oklch(0.968 0.005 90);
   --secondary-foreground: var(--foreground);
   --muted: oklch(0.956 0.004 90);
-  --muted-foreground: oklch(0.51 0.014 65);
-  --accent: oklch(0.64 0.185 32);
+  --muted-foreground: oklch(0.43 0.014 65);
+  --accent: oklch(0.55 0.18 32);
   --accent-foreground: oklch(0.99 0.002 90);
   --gold: oklch(0.88 0.115 86);
   --saffron: var(--accent);
@@ -166,10 +166,16 @@
 }
 
 @layer base {
-  body { font-family: var(--font-sans); letter-spacing: 0; line-height: 1.65; }
+  html { font-size: 18px; scroll-behavior: smooth; scroll-padding-top: 180px; }
+  body { font-family: var(--font-sans); letter-spacing: 0; line-height: 1.75; }
   h1, h2, h3 { line-height: 1.4; letter-spacing: 0; }
+  main p, main li, main label { font-size: max(1em, 1rem); }
+  main input, main textarea, main select { min-height: 48px; font-size: 1rem; }
+  a, button { -webkit-tap-highlight-color: transparent; }
+  a:focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; }
   ::selection { background: var(--gold); color: var(--foreground); }
 }
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }

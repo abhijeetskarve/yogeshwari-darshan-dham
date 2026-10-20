@@ -59,11 +59,11 @@ function Connect() {
               <Card title="धन्यवाद 🙏">आपली चौकशी नोंदवली गेली आहे. जय योगेश्वरी माता!</Card>
             ) : (
               <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="space-y-3 rounded-lg bg-card p-6 shadow-warm">
-                <input required placeholder="पूर्ण नाव" className="w-full rounded-md border border-input bg-background px-4 py-2" />
-                <input required type="tel" placeholder="मोबाईल क्रमांक" className="w-full rounded-md border border-input bg-background px-4 py-2" />
-                <select className="w-full rounded-md border border-input bg-background px-4 py-2">{pujas.map((p) => <option key={p}>{p}</option>)}</select>
-                <input type="date" className="w-full rounded-md border border-input bg-background px-4 py-2" />
-                <textarea placeholder="गोत्र / संदेश" rows={3} className="w-full rounded-md border border-input bg-background px-4 py-2" />
+                <label className="block space-y-1"><span className="font-medium">पूर्ण नाव</span><input required autoComplete="name" placeholder="आपले नाव लिहा" className="w-full rounded-md border border-input bg-background px-4 py-2" /></label>
+                <label className="block space-y-1"><span className="font-medium">मोबाईल क्रमांक</span><input required type="tel" autoComplete="tel" placeholder="आपला मोबाईल क्रमांक लिहा" className="w-full rounded-md border border-input bg-background px-4 py-2" /></label>
+                <label className="block space-y-1"><span className="font-medium">कोणती पूजा करायची आहे?</span><select className="w-full rounded-md border border-input bg-background px-4 py-2">{pujas.map((p) => <option key={p}>{p}</option>)}</select></label>
+                <label className="block space-y-1"><span className="font-medium">पूजेची तारीख</span><input type="date" className="w-full rounded-md border border-input bg-background px-4 py-2" /></label>
+                <label className="block space-y-1"><span className="font-medium">गोत्र किंवा संदेश</span><textarea placeholder="येथे लिहा" rows={3} className="w-full rounded-md border border-input bg-background px-4 py-2" /></label>
                 <Button type="submit" className="w-full bg-accent text-accent-foreground hover:bg-accent/90">चौकशी पाठवा</Button>
               </form>
             )}

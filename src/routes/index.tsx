@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Plane, TrainFront, Car, CalendarDays, Clock3, MapPin } from "lucide-react";
+import { ArrowUpRight, Plane, TrainFront, Car, CalendarDays, Clock3, MapPin, BedDouble, Flame, Bus, Phone } from "lucide-react";
 import air from "@/assets/by-air.jpg";
 import train from "@/assets/by-train.jpg";
 import road from "@/assets/by-road.jpg";
@@ -31,11 +31,13 @@ const travel = [
 function Index() {
   return (
     <>
-      <section className="mx-auto max-w-6xl px-6 pb-8 pt-7 md:pt-9">
+      <section className="mx-auto max-w-6xl px-4 pb-8 pt-7 md:px-6 md:pt-9">
         <div className="mb-6 grid gap-4 md:flex md:items-end md:justify-between">
-          <div className="min-w-0"><p className="mb-1 text-sm text-accent">॥ श्री योगेश्वरी देवी प्रसन्न ॥</p><h1 className="text-3xl font-semibold text-primary md:text-4xl">श्री योगेश्वरी देवी, अंबाजोगाई</h1><p className="mt-2 text-sm text-muted-foreground">योगेश्वरी मातेच्या दरबारात आपले स्वागत.</p></div>
-          <Button asChild variant="link" className="h-auto justify-self-start p-0 text-accent md:shrink-0"><Link to="/darshan">दर्शन व आरती <ArrowUpRight /></Link></Button>
+          <div className="min-w-0"><p className="mb-2 text-base text-accent">॥ श्री योगेश्वरी देवी प्रसन्न ॥</p><h1 className="text-3xl font-semibold text-primary md:text-4xl">श्री योगेश्वरी देवी, अंबाजोगाई</h1><p className="mt-3 text-lg text-muted-foreground">योगेश्वरी मातेच्या दरबारात आपले स्वागत.</p></div>
         </div>
+        <nav aria-label="भाविकांसाठी सोयी" className="mb-7 grid grid-cols-2 gap-3 md:grid-cols-4">
+          {[{ to: "/darshan" as const, label: "दर्शन व आरती", icon: Flame }, { to: "/pilgrimage" as const, label: "कसे यायचे?", icon: Bus }, { to: "/pilgrimage" as const, label: "राहण्याची सोय", icon: BedDouble }, { to: "/connect" as const, label: "पूजा व संपर्क", icon: Phone }].map((item) => <Button key={item.label} asChild variant="outline" className="min-h-20 flex-col gap-2 whitespace-normal border-border bg-card px-2 text-base shadow-none hover:border-accent hover:bg-secondary hover:text-primary md:flex-row"><Link to={item.to} hash={item.label === "राहण्याची सोय" ? "accommodation" : ""}><item.icon className="text-accent" />{item.label}</Link></Button>)}
+        </nav>
         <TempleShowcase />
       </section>
 
@@ -47,7 +49,7 @@ function Index() {
 
       <section className="mx-auto grid max-w-6xl gap-7 px-6 py-10 lg:grid-cols-[1.6fr_1fr_0.9fr]">
         <div>
-          <div className="mb-4 flex items-center justify-between"><h2 className="text-2xl font-semibold">मातेचे दर्शन</h2><Link to="/darshan" aria-label="दर्शन छायाचित्रे पाहा" className="text-accent"><ArrowUpRight className="size-5" /></Link></div>
+          <div className="mb-4 flex flex-wrap items-center justify-between gap-2"><h2 className="text-2xl font-semibold">मातेचे दर्शन</h2><Button asChild variant="link" className="px-0 text-accent"><Link to="/darshan">फोटो पाहा <ArrowUpRight /></Link></Button></div>
           <Link to="/darshan" className="group block overflow-hidden rounded-md"><img src={deity.url} alt="श्री योगेश्वरी मातेचे दर्शन" loading="lazy" className="h-64 w-full object-cover transition duration-500 group-hover:scale-105" /></Link>
           <p className="mt-3 text-sm text-muted-foreground">श्री योगेश्वरी मातेच्या चरणी विनम्र प्रणाम.</p>
         </div>
@@ -58,13 +60,13 @@ function Index() {
         </div>
         <aside className="space-y-4 lg:pt-1">
           <div className="border-l-2 border-accent bg-secondary p-5"><Clock3 className="mb-2 size-5 text-accent" /><h2 className="text-xl font-semibold">दर्शन व आरती</h2><p className="mt-2 text-sm text-muted-foreground">दैनंदिन उपासना आणि आरतीच्या वेळा</p><Button asChild className="mt-4 bg-accent text-accent-foreground hover:bg-accent/90"><Link to="/darshan">वेळापत्रक <ArrowUpRight /></Link></Button></div>
-          <div className="border-l-2 border-gold bg-secondary p-5"><h2 className="text-xl font-semibold">मातेच्या चरणी सेवा</h2><p className="mt-2 text-sm text-muted-foreground">पूजा, अभिषेक व कुलाचार चौकशी</p><Button asChild variant="outline" className="mt-4"><Link to="/connect">पूजा चौकशी <ArrowUpRight /></Link></Button></div>
+          <div className="border-l-2 border-gold bg-secondary p-5"><h2 className="text-xl font-semibold">पूजेची माहिती</h2><p className="mt-2 text-sm text-muted-foreground">पूजा व अभिषेकासाठी चौकशी करा</p><Button asChild variant="outline" className="mt-4"><Link to="/connect">पूजा चौकशी <ArrowUpRight /></Link></Button></div>
         </aside>
       </section>
 
       <section className="border-t border-border bg-secondary">
         <div className="mx-auto max-w-6xl px-6 py-10">
-          <div className="mb-5 flex flex-wrap items-end justify-between gap-3"><div><p className="text-xs text-accent">मातेकडे आपला प्रवास</p><h2 className="mt-1 text-3xl font-semibold">यात्रेचे नियोजन</h2></div><Button asChild variant="link" className="h-auto p-0 text-accent"><Link to="/pilgrimage">संपूर्ण मार्गदर्शन <ArrowUpRight /></Link></Button></div>
+          <div className="mb-5 flex flex-wrap items-end justify-between gap-3"><div><p className="text-base text-accent">मातेकडे आपला प्रवास</p><h2 className="mt-1 text-3xl font-semibold">अंबाजोगाईला कसे यायचे?</h2></div><Button asChild variant="link" className="p-0 text-accent"><Link to="/pilgrimage">रस्ता व राहण्याची माहिती <ArrowUpRight /></Link></Button></div>
           <div className="grid gap-5 sm:grid-cols-3">{travel.map((m) => <Link key={m.title} to="/pilgrimage" className="group overflow-hidden rounded-md border border-border bg-card"><img src={m.image} alt={m.title} loading="lazy" className="aspect-[16/9] w-full object-cover transition duration-500 group-hover:scale-105" /><div className="flex items-center gap-3 px-4 py-3"><m.icon className="size-5 text-accent" /><h3 className="font-sans text-lg font-semibold">{m.title}</h3><ArrowUpRight className="ml-auto size-4 text-muted-foreground" /></div></Link>)}</div>
         </div>
       </section>

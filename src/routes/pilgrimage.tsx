@@ -55,7 +55,7 @@ function Pilgrimage() {
           <div className="grid gap-6 md:grid-cols-2">
             <Card title="भेटीचा उत्तम काळ">ऑक्टोबर ते फेब्रुवारी हवामान आल्हाददायक असते. नवरात्रात मोठी गर्दी असते — निवासाची व्यवस्था आधी करा.</Card>
             <Dialog>
-              <Card title="निवास व्यवस्था">
+              <div id="accommodation" className="min-w-0"><Card title="निवास व्यवस्था">
                 <p>अंबाजोगाई शहरात मंदिराजवळ भक्त निवास, लॉज व हॉटेल्स उपलब्ध आहेत.</p>
                 <div className="mt-4 rounded-md border border-border bg-secondary p-4">
                   <p className="font-semibold text-primary">श्री योगेश्वरी यात्री निवास</p>
@@ -63,12 +63,12 @@ function Pilgrimage() {
                   <p className="mt-1">योगेश्वरी मंदिरसमोर, अंबाजोगाई, जि. बीड · ए.सी. व नॉन-ए.सी. खोल्या</p>
                 </div>
                 <DialogTrigger asChild>
-                  <Button className="mt-4 bg-accent text-accent-foreground hover:bg-accent/90">
+                  <Button className="mt-4 h-auto max-w-full whitespace-normal bg-accent text-accent-foreground hover:bg-accent/90">
                     <BedDouble className="h-4 w-4" />
-                    राहण्यासाठी येथे क्लिक करा
+                    निवासाचा फोटो पाहा
                   </Button>
                 </DialogTrigger>
-              </Card>
+              </Card></div>
               <DialogContent className="max-w-xl">
                 <DialogHeader>
                   <DialogTitle>श्री योगेश्वरी यात्री निवास</DialogTitle>
