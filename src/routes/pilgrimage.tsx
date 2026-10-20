@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import journey from "@/assets/journey.jpg";
+import air from "@/assets/by-air.jpg";
+import train from "@/assets/by-train.jpg";
+import road from "@/assets/by-road.jpg";
 import { PageHero, Section, Card } from "@/components/Section";
 
 export const Route = createFileRoute("/pilgrimage")({
@@ -15,9 +18,9 @@ export const Route = createFileRoute("/pilgrimage")({
 });
 
 const modes = [
-  { title: "By Air", points: ["Latur Airport — approx. 60 km (limited flights)", "Chh. Sambhajinagar (Aurangabad) Airport — approx. 210 km", "Pune Airport — approx. 330 km", "Taxis available from all airports"] },
-  { title: "By Train", points: ["Parli Vaijnath station — approx. 25 km (nearest)", "Latur station — approx. 60 km", "Regular buses and autos from Parli to Ambajogai", "Combine with Vaidyanath Jyotirlinga darshan at Parli"] },
-  { title: "By Road", points: ["MSRTC buses from Pune, Mumbai, Latur, Beed, Nanded", "Beed — approx. 90 km · Latur — approx. 60 km", "Pune — approx. 330 km · Mumbai — approx. 480 km", "Good state highways; parking near temple"] },
+  { title: "By Air", img: air, points: ["Latur Airport — approx. 60 km (limited flights)", "Chh. Sambhajinagar (Aurangabad) Airport — approx. 210 km", "Pune Airport — approx. 330 km", "Taxis available from all airports"] },
+  { title: "By Train", img: train, points: ["Parli Vaijnath station — approx. 25 km (nearest)", "Latur station — approx. 60 km", "Regular buses and autos from Parli to Ambajogai", "Combine with Vaidyanath Jyotirlinga darshan at Parli"] },
+  { title: "By Road", img: road, points: ["MSRTC buses from Pune, Mumbai, Latur, Beed, Nanded", "Beed — approx. 90 km · Latur — approx. 60 km", "Pune — approx. 330 km · Mumbai — approx. 480 km", "Good state highways; parking near temple"] },
 ];
 
 function Pilgrimage() {
@@ -27,9 +30,14 @@ function Pilgrimage() {
       <Section kicker="Getting here" title="How to reach Ambajogai">
         <div className="grid gap-6 md:grid-cols-3">
           {modes.map((m) => (
-            <Card key={m.title} title={m.title}>
-              <ul className="mt-2 space-y-2">{m.points.map((p) => <li key={p} className="flex gap-2"><span className="text-accent">✦</span>{p}</li>)}</ul>
-            </Card>
+            <div key={m.title} className="group overflow-hidden rounded-lg border border-border bg-card shadow-warm">
+              <div className="relative h-48 overflow-hidden">
+                <img src={m.img} alt={m.title} loading="lazy" width={1024} height={768} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-veil" />
+                <h3 className="absolute bottom-3 left-5 text-3xl font-semibold text-primary-foreground">{m.title}</h3>
+              </div>
+              <ul className="space-y-2 p-6 text-muted-foreground">{m.points.map((p) => <li key={p} className="flex gap-2"><span className="text-accent">✦</span>{p}</li>)}</ul>
+            </div>
           ))}
         </div>
         <div className="mt-10 overflow-hidden rounded-lg border border-border shadow-warm">
