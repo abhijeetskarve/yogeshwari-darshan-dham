@@ -38,12 +38,14 @@ export function TempleShowcase() {
       {panels.map((p, i) => {
         const on = i === active;
         return (
-          <button
+          <div
             key={p.title}
-            type="button"
+            role="button"
+            tabIndex={0}
             onClick={() => setActive(i)}
+            onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setActive(i)}
             aria-expanded={on}
-            className={`group relative overflow-hidden text-left transition-[flex-grow] duration-700 ease-out ${on ? "grow-[5]" : "grow"} basis-0`}
+            className={`group relative cursor-pointer overflow-hidden text-left transition-[flex-grow] duration-700 ease-out ${on ? "grow-[5]" : "grow"} basis-0`}
           >
             <img src={p.img} alt={p.title} loading="lazy" className={`absolute inset-0 h-full w-full object-cover transition duration-700 ${on ? "scale-100" : "scale-110 grayscale-[40%]"}`} />
             <div className="absolute inset-0 bg-veil" />
@@ -66,7 +68,7 @@ export function TempleShowcase() {
                 </Link>
               </div>
             </div>
-          </button>
+          </div>
         );
       })}
     </div>
