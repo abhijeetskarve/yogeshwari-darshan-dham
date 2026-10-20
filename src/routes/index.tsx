@@ -32,9 +32,9 @@ function Index() {
   return (
     <>
       <section className="mx-auto max-w-6xl px-6 pb-8 pt-7 md:pt-9">
-        <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
-          <div><p className="mb-1 text-sm text-accent">॥ श्री योगेश्वरी देवी प्रसन्न ॥</p><h1 className="text-3xl font-semibold text-primary md:text-4xl">श्री योगेश्वरी देवी, अंबाजोगाई</h1><p className="mt-2 text-sm text-muted-foreground">योगेश्वरी मातेच्या दरबारात आपले स्वागत.</p></div>
-          <Button asChild variant="link" className="h-auto p-0 text-accent"><Link to="/darshan">दर्शन व आरती <ArrowUpRight /></Link></Button>
+        <div className="mb-6 grid gap-4 md:flex md:items-end md:justify-between">
+          <div className="min-w-0"><p className="mb-1 text-sm text-accent">॥ श्री योगेश्वरी देवी प्रसन्न ॥</p><h1 className="text-3xl font-semibold text-primary md:text-4xl">श्री योगेश्वरी देवी, अंबाजोगाई</h1><p className="mt-2 text-sm text-muted-foreground">योगेश्वरी मातेच्या दरबारात आपले स्वागत.</p></div>
+          <Button asChild variant="link" className="h-auto justify-self-start p-0 text-accent md:shrink-0"><Link to="/darshan">दर्शन व आरती <ArrowUpRight /></Link></Button>
         </div>
         <TempleShowcase />
       </section>
