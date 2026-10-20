@@ -6,72 +6,72 @@ import { PageHero, Section, Card } from "@/components/Section";
 export const Route = createFileRoute("/connect")({
   head: () => ({
     meta: [
-      { title: "Announcements & Puja Enquiries | Yogeshwari Devi Ambajogai" },
-      { name: "description", content: "Important dates, temple announcements, puja enquiries and committee information." },
-      { property: "og:title", content: "Stay connected with Yogeshwari Devi Sansthan" },
-      { property: "og:description", content: "Dates, announcements, puja enquiries and committee details." },
+      { title: "सूचना व पूजा चौकशी | योगेश्वरी देवी अंबाजोगाई" },
+      { name: "description", content: "महत्त्वाच्या तारखा, मंदिर सूचना, पूजा चौकशी आणि समितीची माहिती." },
+      { property: "og:title", content: "योगेश्वरी देवस्थानाशी संपर्कात रहा" },
+      { property: "og:description", content: "तारखा, सूचना, पूजा चौकशी व समितीची माहिती." },
     ],
   }),
   component: Connect,
 });
 
 const dates = [
-  ["Margashirsha Navratri begins", "Margashirsha Shukla Pratipada"],
-  ["Purnima Utsav & Palkhi", "Margashirsha Purnima"],
-  ["Chaitra Navratri", "Chaitra Shukla Pratipada"],
-  ["Sharadiya Navratri & Dasara", "Ashwin Shukla"],
+  ["मार्गशीर्ष नवरात्र प्रारंभ", "मार्गशीर्ष शुद्ध प्रतिपदा"],
+  ["पौर्णिमा उत्सव व पालखी", "मार्गशीर्ष पौर्णिमा"],
+  ["चैत्र नवरात्र", "चैत्र शुद्ध प्रतिपदा"],
+  ["शारदीय नवरात्र व दसरा", "अश्विन शुद्ध"],
 ];
 const news = [
-  "Special darshan queue arrangements announced for Navratri.",
-  "Annadaan seva continues daily for visiting devotees.",
-  "Temple restoration work on the outer prakar in progress.",
+  "नवरात्रासाठी विशेष दर्शन रांगेची व्यवस्था जाहीर.",
+  "येणाऱ्या भाविकांसाठी दररोज अन्नदान सेवा सुरू.",
+  "बाह्य प्राकाराचे जीर्णोद्धार काम प्रगतीपथावर.",
 ];
-const pujas = ["Abhishek", "Kumkumarchan", "Sadi-Choli Arpan", "Navchandi Homa", "Kuldharma / Kulachar", "Annadaan Seva"];
+const pujas = ["अभिषेक", "कुंकुमार्चन", "साडी-चोळी अर्पण", "नवचंडी होम", "कुलधर्म / कुलाचार", "अन्नदान सेवा"];
 
 function Connect() {
   const [sent, setSent] = useState(false);
   return (
     <>
-      <PageHero eyebrow="Stay connected" title="News, dates & seva" intro="Stay close to the temple's calendar and offer your seva to Mata." image={festival} />
-      <Section kicker="Calendar" title="Important dates">
+      <PageHero eyebrow="संपर्कात रहा" title="बातम्या, तारखा व सेवा" intro="मंदिराच्या दिनदर्शिकेशी जोडलेले रहा आणि मातेच्या चरणी सेवा अर्पण करा." image={festival} />
+      <Section kicker="दिनदर्शिका" title="महत्त्वाच्या तारखा">
         <div className="grid gap-6 md:grid-cols-2">
           <div className="space-y-3">
             {dates.map(([n, d]) => (
               <div key={n} className="rounded-md border-l-4 border-accent bg-card px-5 py-3"><p className="font-medium">{n}</p><p className="text-sm text-muted-foreground">{d}</p></div>
             ))}
           </div>
-          <Card title="Announcements">
+          <Card title="सूचना">
             <ul className="space-y-3">{news.map((n) => <li key={n} className="border-b border-border pb-3 last:border-0">{n}</li>)}</ul>
           </Card>
         </div>
       </Section>
       <section className="bg-secondary">
-        <Section kicker="Seva" title="Puja enquiry">
+        <Section kicker="सेवा" title="पूजा चौकशी">
           <div className="grid gap-8 md:grid-cols-2">
             <div>
-              <p className="text-muted-foreground">Offer a puja in your family's name. The temple office will contact you to confirm date and details.</p>
+              <p className="text-muted-foreground">आपल्या कुटुंबाच्या नावाने पूजा अर्पण करा. मंदिर कार्यालय तारीख व तपशील निश्चित करण्यासाठी आपल्याशी संपर्क करेल.</p>
               <div className="mt-4 flex flex-wrap gap-2">{pujas.map((p) => <span key={p} className="rounded-full bg-card px-4 py-1 text-sm text-primary">{p}</span>)}</div>
             </div>
             {sent ? (
-              <Card title="Thank you 🙏">Your enquiry has been noted. Jai Yogeshwari Mata!</Card>
+              <Card title="धन्यवाद 🙏">आपली चौकशी नोंदवली गेली आहे. जय योगेश्वरी माता!</Card>
             ) : (
               <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="space-y-3 rounded-lg bg-card p-6 shadow-warm">
-                <input required placeholder="Full name" className="w-full rounded-md border border-input bg-background px-4 py-2" />
-                <input required type="tel" placeholder="Phone number" className="w-full rounded-md border border-input bg-background px-4 py-2" />
+                <input required placeholder="पूर्ण नाव" className="w-full rounded-md border border-input bg-background px-4 py-2" />
+                <input required type="tel" placeholder="मोबाईल क्रमांक" className="w-full rounded-md border border-input bg-background px-4 py-2" />
                 <select className="w-full rounded-md border border-input bg-background px-4 py-2">{pujas.map((p) => <option key={p}>{p}</option>)}</select>
                 <input type="date" className="w-full rounded-md border border-input bg-background px-4 py-2" />
-                <textarea placeholder="Gotra / message" rows={3} className="w-full rounded-md border border-input bg-background px-4 py-2" />
-                <button className="w-full rounded-full bg-sacred py-3 font-medium text-primary-foreground">Send enquiry</button>
+                <textarea placeholder="गोत्र / संदेश" rows={3} className="w-full rounded-md border border-input bg-background px-4 py-2" />
+                <button className="w-full rounded-full bg-sacred py-3 font-medium text-primary-foreground">चौकशी पाठवा</button>
               </form>
             )}
           </div>
         </Section>
       </section>
-      <Section kicker="Sansthan" title="Temple committee">
+      <Section kicker="देवस्थान" title="मंदिर समिती">
         <div className="grid gap-6 md:grid-cols-3">
-          <Card title="Shri Yogeshwari Devi Sansthan">The trust manages temple administration, worship, festivals and devotee services.</Card>
-          <Card title="Temple office">Ambajogai, Dist. Beed, Maharashtra 431517. Open daily during darshan hours.</Card>
-          <Card title="Volunteer & donate">Contribute to annadaan, festivals and heritage conservation through the temple office.</Card>
+          <Card title="श्री योगेश्वरी देवस्थान">विश्वस्त मंडळ मंदिर प्रशासन, पूजा-अर्चा, उत्सव व भक्त सेवांचे व्यवस्थापन करते.</Card>
+          <Card title="मंदिर कार्यालय">अंबाजोगाई, जि. बीड, महाराष्ट्र ४३१५१७. दर्शन वेळेत दररोज खुले.</Card>
+          <Card title="सेवा व देणगी">अन्नदान, उत्सव व वारसा संवर्धनासाठी मंदिर कार्यालयामार्फत योगदान द्या.</Card>
         </div>
       </Section>
     </>
