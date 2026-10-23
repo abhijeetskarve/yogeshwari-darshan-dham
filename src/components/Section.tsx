@@ -13,7 +13,7 @@ export function Lotus({ className = "" }: { className?: string }) {
   );
 }
 
-export function SectionHeading({ title, kicker, watermark }: { title: string; kicker?: string; watermark?: string }) {
+export function SectionHeading({ title, kicker, watermark }: { title: string; kicker?: string | undefined; watermark?: string | undefined }) {
   return (
     <div className="relative mx-auto mb-8 max-w-3xl text-center">
       {watermark && <span aria-hidden="true" className="watermark pointer-events-none absolute inset-x-0 top-1 -z-0 select-none text-5xl md:text-7xl">{watermark}</span>}
