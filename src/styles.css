@@ -52,6 +52,8 @@
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
   --color-gold: var(--gold);
+  --color-blush: var(--blush);
+  --font-heading: "Khand", "Tiro Devanagari Marathi", sans-serif;
   --color-saffron: var(--saffron);
   --color-maroon-deep: var(--maroon-deep);
   --font-display: "Tiro Devanagari Marathi", "Cormorant Garamond", serif;
@@ -67,7 +69,7 @@
 }
 
 :root {
-  --radius: 0.5rem;
+  --radius: 0.75rem;
   --background: oklch(0.995 0.002 90);
   --foreground: oklch(0.27 0.014 65);
   --card: oklch(1 0 0);
@@ -76,13 +78,14 @@
   --popover-foreground: var(--foreground);
   --primary: oklch(0.28 0.012 65);
   --primary-foreground: oklch(0.99 0.002 90);
-  --secondary: oklch(0.968 0.005 90);
+  --secondary: oklch(0.975 0.008 20);
   --secondary-foreground: var(--foreground);
   --muted: oklch(0.956 0.004 90);
   --muted-foreground: oklch(0.43 0.014 65);
-  --accent: oklch(0.55 0.18 32);
+  --accent: oklch(0.42 0.15 22);
   --accent-foreground: oklch(0.99 0.002 90);
-  --gold: oklch(0.88 0.115 86);
+  --gold: oklch(0.86 0.1 80);
+  --blush: oklch(0.93 0.035 15);
   --saffron: var(--accent);
   --maroon-deep: oklch(0.23 0.012 65);
   --destructive: oklch(0.577 0.245 27.325);
@@ -91,7 +94,8 @@
   --input: var(--border);
   --ring: var(--accent);
   --gradient-sacred: linear-gradient(var(--accent), var(--accent));
-  --gradient-veil: linear-gradient(180deg, oklch(0.2 0.01 65 / 0), oklch(0.2 0.01 65 / 0.68));
+  --gradient-veil: linear-gradient(180deg, oklch(0.15 0.01 40 / 0.15), oklch(0.15 0.01 40 / 0.78));
+  --gradient-hero: linear-gradient(90deg, oklch(0.12 0.01 40 / 0.88) 0%, oklch(0.12 0.01 40 / 0.55) 55%, oklch(0.12 0.01 40 / 0.2) 100%);
   --shadow-warm: 0 6px 24px -12px oklch(0.2 0.01 65 / 0.18);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -155,7 +159,7 @@
 }
 
 @layer base {
-  h1, h2, h3 { font-family: var(--font-display); }
+  h1, h2, h3 { font-family: var(--font-heading); font-weight: 600; }
 }
 @utility bg-sacred { background-image: var(--gradient-sacred); }
 @utility bg-veil { background-image: var(--gradient-veil); }
@@ -178,4 +182,11 @@
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+@utility bg-hero { background-image: var(--gradient-hero); }
+@utility watermark {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--blush);
+  line-height: 1;
 }
