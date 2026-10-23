@@ -7,6 +7,7 @@ import deity from "@/assets/t-ygd.jpg.asset.json";
 import temple from "@/assets/t-DSCN3429.jpg.asset.json";
 import { TempleShowcase } from "@/components/TempleShowcase";
 import { Button } from "@/components/ui/button";
+import { SectionHeading, Lotus } from "@/components/Section";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,10 +32,21 @@ const travel = [
 function Index() {
   return (
     <>
-      <section className="mx-auto max-w-6xl px-4 pb-8 pt-7 md:px-6 md:pt-9">
-        <div className="mb-6 grid gap-4 md:flex md:items-end md:justify-between">
-          <div className="min-w-0"><p className="mb-2 text-base text-accent">॥ श्री योगेश्वरी देवी प्रसन्न ॥</p><h1 className="text-3xl font-semibold text-primary md:text-4xl">श्री योगेश्वरी देवी, अंबाजोगाई</h1><p className="mt-3 text-lg text-muted-foreground">योगेश्वरी मातेच्या दरबारात आपले स्वागत.</p></div>
+      <section className="relative overflow-hidden bg-maroon-deep">
+        <img src={temple.url} alt="" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-hero" />
+        <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-5 py-14 md:grid-cols-[1.4fr_1fr] md:px-6 md:py-20">
+          <div className="text-primary-foreground">
+            <p className="font-display text-xl italic text-gold">॥ श्री योगेश्वरी देवी प्रसन्न ॥</p>
+            <h1 className="mt-3 text-4xl leading-tight md:text-6xl">योगेश्वरी मातेच्या दरबारात आपले स्वागत</h1>
+            <div className="mt-5 max-w-lg border-l-2 border-gold pl-4"><p className="text-lg opacity-90">अंबाजोगाईची कुलस्वामिनी — दर्शन, आरती, उत्सव आणि यात्रेची संपूर्ण माहिती एकाच ठिकाणी.</p></div>
+            <div className="mt-7 flex flex-wrap gap-3"><Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90"><Link to="/darshan">दर्शन व आरती <ArrowUpRight /></Link></Button><Button asChild size="lg" variant="outline" className="border-gold bg-transparent text-primary-foreground hover:bg-gold hover:text-foreground"><Link to="/pilgrimage">कसे यायचे?</Link></Button></div>
+          </div>
+          <img src={deity.url} alt="श्री योगेश्वरी देवी" className="mx-auto hidden w-full max-w-sm rounded-2xl border-4 border-gold object-contain shadow-warm md:block" />
         </div>
+      </section>
+      <section className="mx-auto max-w-6xl px-4 pb-8 pt-12 md:px-6">
+        <SectionHeading title="मंदिराचे दर्शन घ्या" kicker="फोटोवरील बटण दाबा आणि माहिती वाचा" watermark="दर्शन" />
         <nav aria-label="भाविकांसाठी सोयी" className="mb-7 grid grid-cols-2 gap-3 md:grid-cols-4">
           {[{ to: "/darshan" as const, label: "दर्शन व आरती", icon: Flame }, { to: "/pilgrimage" as const, label: "कसे यायचे?", icon: Bus }, { to: "/pilgrimage" as const, label: "राहण्याची सोय", icon: BedDouble }, { to: "/connect" as const, label: "पूजा व संपर्क", icon: Phone }].map((item) => <Button key={item.label} asChild variant="outline" className="min-h-20 flex-col gap-2 whitespace-normal border-border bg-card px-2 text-base shadow-none hover:border-accent hover:bg-secondary hover:text-primary md:flex-row"><Link to={item.to} hash={item.label === "राहण्याची सोय" ? "accommodation" : ""}><item.icon className="text-accent" />{item.label}</Link></Button>)}
         </nav>
@@ -65,12 +77,12 @@ function Index() {
       </section>
 
       <section className="border-t border-border bg-secondary">
-        <div className="mx-auto max-w-6xl px-6 py-10">
-          <div className="mb-5 flex flex-wrap items-end justify-between gap-3"><div><p className="text-base text-accent">मातेकडे आपला प्रवास</p><h2 className="mt-1 text-3xl font-semibold">अंबाजोगाईला कसे यायचे?</h2></div><Button asChild variant="link" className="p-0 text-accent"><Link to="/pilgrimage">रस्ता व राहण्याची माहिती <ArrowUpRight /></Link></Button></div>
-          <div className="grid gap-5 sm:grid-cols-3">{travel.map((m) => <Link key={m.title} to="/pilgrimage" className="group overflow-hidden rounded-md border border-border bg-card"><img src={m.image} alt={m.title} loading="lazy" className="aspect-[16/9] w-full object-cover transition duration-500 group-hover:scale-105" /><div className="flex items-center gap-3 px-4 py-3"><m.icon className="size-5 text-accent" /><h3 className="font-sans text-lg font-semibold">{m.title}</h3><ArrowUpRight className="ml-auto size-4 text-muted-foreground" /></div></Link>)}</div>
+        <div className="mx-auto max-w-6xl px-6 py-14">
+          <SectionHeading title="अंबाजोगाईला कसे यायचे?" kicker="मातेकडे आपला प्रवास" watermark="यात्रा" />
+          <div className="grid gap-6 sm:grid-cols-3">{travel.map((m) => <Link key={m.title} to="/pilgrimage" className="group overflow-hidden rounded-xl border border-border bg-card shadow-warm"><img src={m.image} alt={m.title} loading="lazy" className="aspect-[16/9] w-full object-cover transition duration-500 group-hover:scale-105" /><div className="flex items-center gap-3 px-4 py-3"><m.icon className="size-5 text-accent" /><h3 className="font-sans text-lg font-semibold">{m.title}</h3><ArrowUpRight className="ml-auto size-4 text-muted-foreground" /></div></Link>)}</div>
         </div>
       </section>
-      <section className="mx-auto max-w-4xl px-6 py-12 text-center"><p className="mb-3 text-sm text-accent">॥ जय योगेश्वरी माता ॥</p><p className="font-display text-xl leading-loose text-primary md:text-2xl">सर्वमङ्गलमाङ्गल्ये शिवे सर्वार्थसाधिके।<br />शरण्ये त्र्यम्बके गौरि नारायणि नमोऽस्तु ते॥</p></section>
+      <section className="mx-auto max-w-4xl px-6 py-12 text-center"><Lotus className="mx-auto mb-3" /><p className="font-display text-xl leading-loose text-primary md:text-2xl">सर्वमङ्गलमाङ्गल्ये शिवे सर्वार्थसाधिके।<br />शरण्ये त्र्यम्बके गौरि नारायणि नमोऽस्तु ते॥</p></section>
     </>
   );
 }
