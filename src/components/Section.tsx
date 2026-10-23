@@ -43,7 +43,7 @@ export function PageHero({ eyebrow, title, intro, image }: { eyebrow: string; ti
 export function Section({ title, kicker, children }: { title: string; kicker?: string; children: ReactNode }) {
   return (
     <section className="mx-auto max-w-6xl px-5 py-12 md:px-6 md:py-16">
-      <SectionHeading title={title} kicker={kicker} watermark={kicker} />
+      <SectionHeading title={title} kicker={kicker} watermark={kicker && kicker.length <= 10 ? kicker : undefined} />
       {children}
     </section>
   );

@@ -42,7 +42,7 @@ function Index() {
             <div className="mt-5 max-w-lg border-l-2 border-gold pl-4"><p className="text-lg opacity-90">अंबाजोगाईची कुलस्वामिनी — दर्शन, आरती, उत्सव आणि यात्रेची संपूर्ण माहिती एकाच ठिकाणी.</p></div>
             <div className="mt-7 flex flex-wrap gap-3"><Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90"><Link to="/darshan">दर्शन व आरती <ArrowUpRight /></Link></Button><Button asChild size="lg" variant="outline" className="border-gold bg-transparent text-primary-foreground hover:bg-gold hover:text-foreground"><Link to="/pilgrimage">कसे यायचे?</Link></Button></div>
           </div>
-          <img src={deity.url} alt="श्री योगेश्वरी देवी" className="mx-auto hidden w-64 rounded-full border-4 border-gold object-cover shadow-warm md:block lg:w-80" />
+          <img src={deity.url} alt="श्री योगेश्वरी देवी" className="mx-auto hidden w-full max-w-sm rounded-2xl border-4 border-gold object-contain shadow-warm md:block" />
         </div>
       </section>
       <section className="mx-auto max-w-6xl px-4 pb-8 pt-12 md:px-6">
