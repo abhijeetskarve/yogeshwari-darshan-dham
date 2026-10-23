@@ -24,10 +24,10 @@ export function SiteHeader() {
         </Link>
         <Button asChild className="hidden bg-accent text-accent-foreground hover:bg-accent/90 sm:inline-flex"><Link to="/connect">पूजा चौकशी <ArrowUpRight /></Link></Button>
       </div>
-      <div className="border-y border-border bg-gold">
+      <div className="radiant-navigation border-y border-border">
         <nav className="mx-auto grid max-w-6xl grid-cols-3 gap-1.5 px-3 py-2 md:flex md:gap-2 md:px-6" aria-label="मुख्य मेनू">
-          {nav.map((n) => <Button key={n.to} asChild variant="ghost" className="min-h-16 flex-col gap-1 whitespace-normal px-1 py-2 text-sm leading-snug text-foreground hover:bg-background/50 md:min-h-12 md:flex-row md:gap-2 md:px-3"><Link to={n.to} activeProps={{ className: "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground" }} activeOptions={{ exact: true }}><n.icon />{n.label}</Link></Button>)}
-          <span className="ml-auto hidden items-center gap-1 text-sm text-foreground lg:flex"><MapPin className="size-4" /> अंबाजोगाई, बीड</span>
+          {nav.map((n) => <Button key={n.to} asChild variant="ghost" className="min-h-16 flex-col gap-1 whitespace-normal px-1 py-2 text-sm leading-snug text-navigation-foreground hover:bg-background/50 md:min-h-12 md:flex-row md:gap-2 md:px-3"><Link to={n.to} activeProps={{ className: "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground" }} activeOptions={{ exact: true }}><n.icon />{n.label}</Link></Button>)}
+          <span className="ml-auto hidden items-center gap-1 text-sm text-navigation-foreground lg:flex"><MapPin className="size-4" /> अंबाजोगाई, बीड</span>
         </nav>
       </div>
     </header>

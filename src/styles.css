@@ -53,6 +53,7 @@
   --color-chart-5: var(--chart-5);
   --color-gold: var(--gold);
   --color-blush: var(--blush);
+  --color-navigation-foreground: var(--navigation-foreground);
   --font-heading: "Khand", "Tiro Devanagari Marathi", sans-serif;
   --color-saffron: var(--saffron);
   --color-maroon-deep: var(--maroon-deep);
@@ -86,6 +87,12 @@
   --accent-foreground: oklch(0.99 0.002 90);
   --gold: oklch(0.86 0.1 80);
   --blush: oklch(0.93 0.035 15);
+  --navigation-foreground: oklch(0.25 0.025 30);
+  --navigation-coral: oklch(0.9 0.07 25);
+  --navigation-gold: oklch(0.94 0.08 85);
+  --navigation-mint: oklch(0.91 0.065 165);
+  --navigation-sky: oklch(0.91 0.06 235);
+  --gradient-navigation: linear-gradient(110deg, var(--navigation-coral), var(--navigation-gold), var(--navigation-mint), var(--navigation-sky), var(--navigation-coral));
   --saffron: var(--accent);
   --maroon-deep: oklch(0.23 0.012 65);
   --destructive: oklch(0.577 0.245 27.325);
@@ -113,6 +120,11 @@
 }
 
 .dark {
+  --navigation-foreground: oklch(0.97 0.005 90);
+  --navigation-coral: oklch(0.32 0.065 25);
+  --navigation-gold: oklch(0.32 0.06 85);
+  --navigation-mint: oklch(0.32 0.055 165);
+  --navigation-sky: oklch(0.32 0.055 235);
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
   --card: oklch(0.208 0.042 265.755);
@@ -189,4 +201,48 @@
   font-style: italic;
   color: var(--blush);
   line-height: 1;
+}
+
+/* Shared motion never hides content; reduced-motion users get a static page. */
+.radiant-navigation {
+  background-image: var(--gradient-navigation);
+  background-size: 240% 100%;
+  animation: navigation-radiance 18s ease-in-out infinite alternate;
+}
+.radiant-navigation nav a {
+  transition: transform 200ms ease, background-color 200ms ease, color 200ms ease;
+}
+.motion-section[data-revealed="true"] {
+  animation: section-arrive 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.motion-section[data-revealed="true"] .section-lotus {
+  animation: lotus-arrive 900ms ease-out both;
+}
+.devotee-card {
+  transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .radiant-navigation nav a:hover { transform: translateY(-2px); }
+  .devotee-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-warm);
+  }
+}
+@keyframes navigation-radiance {
+  from { background-position: 0% 50%; }
+  to { background-position: 100% 50%; }
+}
+@keyframes section-arrive {
+  from { opacity: 0.75; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes lotus-arrive {
+  from { transform: scale(0.86); }
+  to { transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .radiant-navigation, .motion-section[data-revealed="true"],
+  .motion-section[data-revealed="true"] .section-lotus { animation: none; }
+  .radiant-navigation nav a:hover, .devotee-card:hover { transform: none; }
 }
