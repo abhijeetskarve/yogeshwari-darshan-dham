@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 export function Lotus({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 48 28" aria-hidden="true" className={`h-6 w-10 text-accent ${className}`} fill="currentColor">
+    <svg viewBox="0 0 48 28" aria-hidden="true" className={`section-lotus h-6 w-10 text-accent ${className}`} fill="currentColor">
       <path d="M24 2c4 5 5 11 0 20-5-9-4-15 0-20Z" />
       <path d="M22 22C17 18 12 12 13 6c5 2 9 8 9 16Z" opacity=".75" />
       <path d="M26 22c5-4 10-10 9-16-5 2-9 8-9 16Z" opacity=".75" />
@@ -51,7 +51,7 @@ export function Section({ title, kicker, children }: { title: string; kicker?: s
 
 export function Card({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <div className="rounded-xl border border-border bg-card p-6 shadow-warm">
+    <div className="devotee-card rounded-xl border border-border bg-card p-6 shadow-warm">
       <h3 className="text-xl text-accent">{title}</h3>
       <div className="mt-2 text-muted-foreground">{children}</div>
     </div>

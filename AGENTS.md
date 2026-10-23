@@ -10,5 +10,6 @@
 <!-- LOVABLE:END -->
 
 - Keep shared page styling in the semantic tokens and SiteChrome/Section components so visual updates remain consistent across all pages.
+- Keep navigation gradients and page motion in shared semantic CSS; reveal sections once with IntersectionObserver and honor reduced motion without hiding content.
 - Keep readability and tap-target defaults in global styles and Button, and expose primary navigation without a mobile menu toggle so important destinations stay directly accessible.
 - TempleShowcase keeps photo selection separate from details visibility; use stacked uncropped photos with details beneath the selected photo on mobile, and an expanding photo strip with shared details below on desktop so photos remain unobscured.
